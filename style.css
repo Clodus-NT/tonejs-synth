@@ -10,13 +10,9 @@ body {
 
 canvas {
   display: block;
-  /* position: absolute;
-  z-index: -1; */
 }
 
 .modulation {
-  /* z-index: +1; */
-  /* background-color: rgb(20, 20, 20); */
   margin: 0;
   padding: 50px;
   display: flex;
@@ -55,14 +51,10 @@ canvas {
   border-radius: 5px;
   background-color: rgb(220, 242, 251);
   box-shadow: inset 0 0 3px 1px rgb(235, 235, 235);
-  
-  /* background-image: linear-gradient(to right, #9b9b9b 0%, #000000 51%, #707070 100%); */
   cursor: pointer;
 }
 
 .input::-moz-range-thumb {
-  /* width: 25px;
-  height: 25px; */
   border-radius: 50%;
   background: #c7c7c7;
   cursor: pointer;
@@ -85,7 +77,6 @@ canvas {
   color: rgb(220, 242, 251);
   font-family: sans-serif;
   font-weight: bolder;
-  /* background-color: white; */
 }
 
 .sineBtn,
@@ -121,7 +112,6 @@ canvas {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* align-items: center; */
   margin: auto;
   position: relative;
 }
@@ -129,8 +119,6 @@ canvas {
 .key {
   display: flex;
   justify-content: center;
-  /* position: relative; */
-  /* align-items: center; */
   font-family: sans-serif;
   font-weight: 850;
   padding-top: 5px;
@@ -153,7 +141,6 @@ canvas {
   background-color: rgb(15, 15, 15);
   box-shadow: inset 0 0 5px 1px rgb(0, 0, 0);
   width: 55px;
-  /* height: 100px; */
   z-index: 2;
 }
 
