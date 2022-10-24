@@ -38,9 +38,9 @@ function initAudio() {
 
 // Draw Waveform to Canvas
 function drawWave() {
-  stroke('white');
+  stroke('#7F00FF');
   // noFill();
-  fill('white');
+  fill('#7F00FF');
   
   let buffer = waveform.getValue(0);
   
