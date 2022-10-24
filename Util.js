@@ -16,7 +16,7 @@ function initAudio() {
   let rel = 4;
 
   synthMain = new Tone.Synth({
-    oscillator: {type: 'triangle'},
+    oscillator: {type: 'sine'},
     envelope: {
       attack: att,
       decay: dec,
