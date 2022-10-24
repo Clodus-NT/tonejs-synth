@@ -1,16 +1,18 @@
 let ready = false;
-let mainOsc;
+let oscMain, synthMain, waveform, masterVolume, buffer;
 // *******************************************************
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  frameRate(30);
 }
 // *******************************************************
 function draw() {
   background(25);
-  // fill('white');
-  // textAlign(CENTER, CENTER);
-  // text("CLICK TO START", width/2, height/2)
   audioCtxReady();
+  if (ready) {
+    drawWave();
+  }
+  // createVis();
 }
 // *******************************************************
 function mousePressed() {
@@ -18,6 +20,10 @@ function mousePressed() {
     ready = true;
     initAudio();
   }
+}
+// *******************************************************
+function keyPressed() {
+  handleMusicalTyping();
 }
 // *******************************************************
 function windowResized() {
