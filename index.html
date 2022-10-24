@@ -15,16 +15,33 @@
   </head>
 
   <body>
+    <!-- Main Container -->
     <div id="_synthesizer" class="synthesizer">
+      <!-- Waveform Visuals -->
       <div id="_canvas"></div>
+      <!-- Modulation/Options -->
       <div id="_modulation" class="modulation">
-        <div id="_envCtrl" class="envCtrl">
+        <!-- Swap Waveforms -->
+        <div id="_wavCtrl" class="wavCtrl">
           <button id="_sineBtn" class="sineBtn">Sine</button>
           <button id="_triBtn" class="triBtn">Triangle</button>
           <button id="_sawBtn" class="sawBtn">Sawtooth</button>
           <button id="_squareBtn" class="squareBtn">Square</button>
         </div>
-
+        <!-- Envelope Controls -->
+        <div id="_envCtrl" class="envCtrl">
+          <input type="range" name="attack">
+          <label for="attack">Attack</label>
+          <br>
+          <input type="range" name="decay">
+          <label for="decay">Decay</label>
+          <br>
+          <input type="range" name="sustain">
+          <label for="sustain">Sustain</label>
+          <br>
+          <input type="range" name="release">
+          <label for="release">Release</label>
+        </div>
       </div>
     </div>
 
