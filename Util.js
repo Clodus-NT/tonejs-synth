@@ -15,12 +15,6 @@ function initAudio() {
   let sus = 0.4;
   let rel = 4;
 
-  // Create Main Oscillator
-  // oscMain = new Tone.Oscillator();
-  // oscMain.type = 'triangle';
-  // oscMain.frequency.value = 220; // Note in hz
-  // oscMain.start(); // Trigger sound
-  // oscMain.toDestination(); // Connect to audio output
   synthMain = new Tone.Synth({
     oscillator: {type: 'triangle'},
     envelope: {
@@ -36,23 +30,51 @@ function initAudio() {
   Tone.Master.connect(waveform);
 }
 
-
-  // const sineWavBtn = document.getElementById('_sineBtn');
-  // const triWavBtn = document.getElementById('_triBtn');
-  // const sawWavBtn = document.getElementById('_sawBtn');
-  // const squareWavBtn = document.getElementById('_squareBtn');
-
+// Select the waveform handling
 const selectSine = () => synthMain.oscillator.type = 'sine';
 const selectTri = () => synthMain.oscillator.type = 'triangle';
 const selectSaw = () => synthMain.oscillator.type = 'sawtooth';
 const selectSquare = () => synthMain.oscillator.type = 'square';
 
 
-// Draw Waveform to Canvas
+// Draw Waveform to Canvas & Button Styling
 function drawWave() {
-  stroke('#7F00FF');
-  // noFill();
-  fill('#7F00FF');
+  let sineWavBtn = document.getElementById('_sineBtn');
+  let triWavBtn = document.getElementById('_triBtn');
+  let sawWavBtn = document.getElementById('_sawBtn');
+  let squareWavBtn = document.getElementById('_squareBtn');
+  let oscType = synthMain.oscillator.type;
+
+  if (oscType === 'sine') {
+    triWavBtn.classList.remove('wavSelected'); // Remove classes
+    sawWavBtn.classList.remove('wavSelected');
+    squareWavBtn.classList.remove('wavSelected');
+    sineWavBtn.classList.add('wavSelected'); // Add class to sine button
+    stroke('#B833FF');
+    fill('#B833FF');
+  } else if (oscType === 'triangle') {
+    sineWavBtn.classList.remove('wavSelected'); // Remove classes
+    sawWavBtn.classList.remove('wavSelected');
+    squareWavBtn.classList.remove('wavSelected');
+    triWavBtn.classList.add('wavSelected'); // Add class to triangle button
+    stroke('#FF10F0');
+    fill('#FF10F0');
+  } else if (oscType === 'sawtooth') {
+    sineWavBtn.classList.remove('wavSelected'); // Remove classes
+    triWavBtn.classList.remove('wavSelected');
+    squareWavBtn.classList.remove('wavSelected');
+    sawWavBtn.classList.add('wavSelected'); // Add class to saw button
+    stroke('#33FF6C');
+    fill('#33FF6C');
+  } else if (oscType = 'square') {
+    sineWavBtn.classList.remove('wavSelected'); // Remove classes
+    triWavBtn.classList.remove('wavSelected');
+    sawWavBtn.classList.remove('wavSelected');
+    squareWavBtn.classList.add('wavSelected'); // Add class to square button
+    stroke('#33D7FF');
+    fill('#33D7FF')
+  }
+
   
   let buffer = waveform.getValue(0);
   
