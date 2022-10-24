@@ -38,6 +38,7 @@ canvas {
 .triBtn,
 .sawBtn,
 .squareBtn {
+  outline: none;
   margin: 5px;
   border: 2px solid rgb(66, 66, 66);
   border-radius: 10px;
