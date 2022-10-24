@@ -36,3 +36,28 @@ function handleMusicalTyping() {
     }
   }
 }
+
+// Create keys for keyboard
+// Generate Keys
+function createKeys() {
+  for (let i = 0; i < keyboardOptions.length; i++) {
+    const keyboardUL = document.getElementById('_keyboardUL');
+    let keyboardLI = document.createElement('_keyboardLI');
+    keyboardLI.innerText = keyboardOptions[i].toUpperCase();
+    keyboardLI.classList.add('key');
+    keyboardUL.append(keyboardLI);
+    if (
+      keyboardOptions[i] === 'w' || 
+      keyboardOptions[i] === 'e' ||
+      keyboardOptions[i] === 't' ||
+      keyboardOptions[i] === 'y' ||
+      keyboardOptions[i] === 'u' ||
+      keyboardOptions[i] === 'o' ||
+      keyboardOptions[i] === 'p'
+    ) {
+      keyboardLI.classList.add('black-key');
+    } else {
+      keyboardLI.classList.add('white-key');
+    }
+  }
+}

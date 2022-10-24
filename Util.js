@@ -36,7 +36,6 @@ const selectTri = () => synthMain.oscillator.type = 'triangle';
 const selectSaw = () => synthMain.oscillator.type = 'sawtooth';
 const selectSquare = () => synthMain.oscillator.type = 'square';
 
-
 // Draw Waveform to Canvas & Button Styling
 function drawWave() {
   let sineWavBtn = document.getElementById('_sineBtn');
