@@ -6,23 +6,34 @@ let C4_Oct = ['C4', 'C#4', 'D4', 'D#4', 'E4', 'F4', 'F#4', 'G4', 'G#4', 'A4', 'A
 let C5_Oct = ['C5', 'C#5', 'D5', 'D#5', 'E5', 'F5', 'F#5', 'G5', 'G#5', 'A5', 'A#5', 'B5', 'C6', 'C#6', 'D6', 'D#6', 'E6', 'F6']; 
 let C6_Oct = ['C6', 'C#6', 'D6', 'D#6', 'E6', 'F6', 'F#6', 'G6', 'G#6', 'A6', 'A#6', 'B6', 'C7', 'C#7', 'D7', 'D#7', 'E7', 'F7']; 
 let C7_Oct = ['C7', 'C#7', 'D7', 'D#7', 'E7', 'F7', 'F#7', 'G7', 'G#7', 'A7', 'A#7', 'B7', 'C8', 'C#8', 'D8', 'D#8', 'E8', 'F8'];
+let noteValArry = [];
+noteValArry.push(C0_Oct, C1_Oct, C2_Oct, C3_Oct, C4_Oct, C5_Oct, C6_Oct, C7_Oct);
+console.log(noteValArry)
 
 const keyboardOptions = [
   'a', 'w', 's', 'e', 'd', 'f', 't', 'g', 'y', 
   'h', 'u', 'j', 'k', 'o', 'l', 'p', ';', '\''
 ];
+let C3ref = 3;
 // Handles both note range selector and musical typing
 function handleMusicalTyping() {
-  const C0 = 0; const C1 = 1; const C2 = 2; const C3 = 3; 
-  const C4 = 4; const C5 = 5; const C6 = 6; const C7 = 7;
+  // const C0 = 0; const C1 = 1; const C2 = 2; const C3 = 3; 
+  // const C4 = 4; const C5 = 5; const C6 = 6; const C7 = 7;
+
+
+  if (keyIsPressed && key === 'z') {
+    C3ref--;
+  } else if (keyIsPressed && key === 'x') {
+    C3ref++;
+  }
+
+  console.log(C3ref)
 
   for (let i = 0; i < keyboardOptions.length; i++) {
     if (keyIsPressed && key === keyboardOptions[i]) {
-      let noteIndex = C3_Oct[i];
+      let noteIndex = noteValArry[C3ref][i];
       synthMain.triggerAttackRelease(noteIndex, 0.2);
-      console.log(noteIndex)
+      // console.log(noteIndex)
     }
   }
 }
-
-console.log(C3_Oct[17])
