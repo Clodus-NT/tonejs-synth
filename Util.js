@@ -36,6 +36,18 @@ function initAudio() {
   Tone.Master.connect(waveform);
 }
 
+
+  // const sineWavBtn = document.getElementById('_sineBtn');
+  // const triWavBtn = document.getElementById('_triBtn');
+  // const sawWavBtn = document.getElementById('_sawBtn');
+  // const squareWavBtn = document.getElementById('_squareBtn');
+
+const selectSine = () => synthMain.oscillator.type = 'sine';
+const selectTri = () => synthMain.oscillator.type = 'triangle';
+const selectSaw = () => synthMain.oscillator.type = 'sawtooth';
+const selectSquare = () => synthMain.oscillator.type = 'square';
+
+
 // Draw Waveform to Canvas
 function drawWave() {
   stroke('#7F00FF');

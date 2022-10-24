@@ -21,6 +21,7 @@ function mousePressed() {
     ready = true;
     initAudio();
   }
+  // selectWavform();
 }
 // *******************************************************
 function keyPressed() {

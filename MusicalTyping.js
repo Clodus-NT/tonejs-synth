@@ -16,7 +16,7 @@ const keyboardOptions = [
   'a', 'w', 's', 'e', 'd', 'f', 't', 'g', 'y', 
   'h', 'u', 'j', 'k', 'o', 'l', 'p', ';', '\''
 ];
-let C3ref = 3; // Reference index point for the C3 not range in noteValArr
+let C3ref = 3; // Reference index point for the C3 note range in noteValArr
 
 // Handles both note range selector and musical typing
 function handleMusicalTyping() {
