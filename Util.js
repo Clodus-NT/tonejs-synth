@@ -8,12 +8,19 @@ function audioCtxReady() {
   } 
 }
 
+
+// let volSlider = document.getElementById('_volCtrl');
+// let volCtrl = function() {return volSlider.getValue()};
+// volSlider.addEventListener('input', volSlider);
+// console.log(volCtrl)
 // Audio / Oscillator Setup
+// let volCtrl = document.getElementById('_volCtrl').value;
+// console.log(volCtrl)
 function initAudio() {
-  let att = 0.01;
+  let att = 0.03;
   let dec = 1;
   let sus = 0.4;
-  let rel = 4;
+  let rel = 2;
 
   synthMain = new Tone.Synth({
     oscillator: {type: 'sine'},
@@ -24,7 +31,14 @@ function initAudio() {
       release: rel
     }
   }).toDestination();
-  Tone.Master.volume.value = -10; // In decibels
+  mstrVolume = Tone.Master.volume.value = -10; // In decibels
+
+  // Volume Control
+  // let volSlider = document.getElementById('_volCtrl');
+  // volSlider.addEventListener('change', function(e) {
+  //   mstrVolume.value = e.currentTarget.value
+  //   console.log(mstrVolume.value)
+  // });
 
   waveform = new Tone.Waveform();
   Tone.Master.connect(waveform);

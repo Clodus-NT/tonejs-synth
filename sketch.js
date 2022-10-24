@@ -1,5 +1,5 @@
 let ready = false;
-let oscMain, synthMain, waveform, masterVolume, buffer, canvas;
+let oscMain, synthMain, mstrVolume, waveform, masterVolume, buffer, canvas;
 // *******************************************************
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight/2.5);

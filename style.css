@@ -125,3 +125,15 @@ canvas {
   background-color: rgb(44, 44, 44);
   box-shadow: inset 0 0 5px 1px rgb(0, 0, 0);
 }
+
+.white-key-active {
+  cursor: pointer;
+  background-color: rgb(169, 169, 169);
+  box-shadow: inset 0 0 5px 1px rgb(44, 44, 44);
+}
+
+.black-key-active {
+  cursor: pointer;
+  background-color: rgb(44, 44, 44);
+  box-shadow: inset 0 0 5px 1px rgb(0, 0, 0);
+}

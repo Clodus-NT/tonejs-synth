@@ -16,7 +16,9 @@ const keyboardOptions = [
   'a', 'w', 's', 'e', 'd', 'f', 't', 'g', 'y', 
   'h', 'u', 'j', 'k', 'o', 'l', 'p', ';', '\''
 ];
-let C3ref = 3; // Reference index point for the C3 note range in noteValArr
+
+ // Reference index point for the C3 note range in noteValArr
+let C3ref = 3;
 
 // Handles both note range selector and musical typing
 function handleMusicalTyping() {
@@ -37,12 +39,11 @@ function handleMusicalTyping() {
   }
 }
 
-// Create keys for keyboard
 // Generate Keys
 function createKeys() {
   for (let i = 0; i < keyboardOptions.length; i++) {
     const keyboardUL = document.getElementById('_keyboardUL');
-    let keyboardLI = document.createElement('_keyboardLI');
+    const keyboardLI = document.createElement('_keyboardLI');
     keyboardLI.innerText = keyboardOptions[i].toUpperCase();
     keyboardLI.classList.add('key');
     keyboardUL.append(keyboardLI);
