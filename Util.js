@@ -8,20 +8,40 @@ function audioCtxReady() {
   } 
 }
 
+// // Envelope Controls
+//     // Attack
+//   const attSlider = document.getElementById('_attSlider');
+//   const attVal = attSlider.addEventListener('change', function(e) {
+//     // ampEnv.attack = e.currentTarget.value;
+//     synthMain.envelope.attack = e.currentTarget.value;
+//   });
+//     // Decay
+//   const decSlider = document.getElementById('_decSlider');
+//   const decVal = decSlider.addEventListener('change', function(e) {
+//     // ampEnv.decay = e.currentTarget.value;
+//     synthMain.envelope.decay = e.currentTarget.value;
+//   });
+//     // Sustain
+//   const susSlider = document.getElementById('_susSlider');
+//   const susVal = susSlider.addEventListener('change', function(e) {
+//     // ampEnv.sustain = e.currentTarget.value;
+//     synthMain.envelope.sustain = e.currentTarget.value;
+//   });
+//     // Release
+//   const relSlider = document.getElementById('_relSlider');
+//   const relVal = susSlider.addEventListener('change', function(e) {
+//     // ampEnv.release = e.currentTarget.value;
+//     synthMain.envelope.release = e.currentTarget.value;
+//   });
 
-// let volSlider = document.getElementById('_volCtrl');
-// let volCtrl = function() {return volSlider.getValue()};
-// volSlider.addEventListener('input', volSlider);
-// console.log(volCtrl)
-// Audio / Oscillator Setup
-// let volCtrl = document.getElementById('_volCtrl').value;
-// console.log(volCtrl)
+  // Volume Control
+  const volSlider = document.getElementById('_volCtrl');
+  const volVal = volSlider.addEventListener('change', function(e) {
+    Tone.Master.volume.value = e.currentTarget.value
+  });
+
 function initAudio() {
-  // let att = 0.03;
-  // let dec = 1;
-  // let sus = 0.4;
-  // let rel = 2;
-
+  // Create Synth
   synthMain = new Tone.Synth({
     oscillator: {type: 'sine'},
     envelope: {
@@ -31,29 +51,51 @@ function initAudio() {
       release: 0.01
     }
   }).toDestination();
-  // console.log(synthMain.envelope.attack)
+
+  // Create Amplitude Envelope
+  // ampEnv = new Tone.AmplitudeEnvelope(
+  //   {
+  //   attack: 0,
+  //   decay: 0.5,
+  //   sustain: 0,
+  //   release: 0.2
+  //   }
+  // ).toDestination();
+
+  // // ampEnv.toDestination();
+  // synthMain.connect(ampEnv);
+
+  // Envelope Controls
+    // Attack
+  const attSlider = document.getElementById('_attSlider');
+  const attVal = attSlider.addEventListener('change', function(e) {
+    // ampEnv.attack = e.currentTarget.value;
+    synthMain.envelope.attack = e.currentTarget.value;
+  });
+    // Decay
+  const decSlider = document.getElementById('_decSlider');
+  const decVal = decSlider.addEventListener('change', function(e) {
+    // ampEnv.decay = e.currentTarget.value;
+    synthMain.envelope.decay = e.currentTarget.value;
+  });
+    // Sustain
+  const susSlider = document.getElementById('_susSlider');
+  const susVal = susSlider.addEventListener('change', function(e) {
+    // ampEnv.sustain = e.currentTarget.value;
+    synthMain.envelope.sustain = e.currentTarget.value;
+  });
+    // Release
+  const relSlider = document.getElementById('_relSlider');
+  const relVal = relSlider.addEventListener('change', function(e) {
+    // ampEnv.release = e.currentTarget.value;
+    synthMain.envelope.release = e.currentTarget.value;
+  });
+
   // Volume Control
   const volSlider = document.getElementById('_volCtrl');
   const volVal = volSlider.addEventListener('change', function(e) {
     Tone.Master.volume.value = e.currentTarget.value
-    console.log(mstrVolume)
   });
-  // mstrVolume = Tone.Master.volume.value = volVal; // In decibels
-
-  // Envelope Controls
-    // let mainEnv = new Tone.Envelope({
-    //   attack: 0.03,
-    //   decay: 1,
-    //   sustain: 0.04,
-    //   release: 5
-    // }).toDestination();
-  // let mainEnv = synthMain.oscillator.envelope;
-  //   // Attack
-  // const attSlider = document.getElementById('_attSlider');
-  // const attVal = attSlider.addEventListener('change', function(e) {
-  //   mainEnv.attack = e.currentTarget.value;
-  //   console.log('attack: ', mainEnv.attack.value)
-  // })
 
   waveform = new Tone.Waveform();
   Tone.Master.connect(waveform);

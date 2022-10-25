@@ -19,10 +19,17 @@ const keyboardOptions = [
 
  // Reference index point for the C3 note range in noteValArr
  // This will be the default note range on page load
-let C3ref = 3;
+// let C3ref = 3;
 
+
+// Event listener for key up
+// const handleKeyUp = (e) => {
+
+// }
 // Handles both note range selector and musical typing
 function handleMusicalTyping() {
+  let C3ref = 3;
+  let noteIndex;
   //The increments or decrememts the playable note range
   if (keyIsPressed && key === 'z') {
     C3ref--;
@@ -31,16 +38,14 @@ function handleMusicalTyping() {
   }
   // Checks for key character in keyboardOptions
   // Then assigns a note within given range to that key
-  // const now = Tone.now();
   for (let i = 0; i < keyboardOptions.length; i++) {
     if (keyIsPressed && key === keyboardOptions[i]) {
-      let noteIndex = noteValArr[C3ref][i];
-      synthMain.triggerAttackRelease(noteIndex);
+      noteIndex = noteValArr[C3ref][i];
+      synthMain.triggerAttack(noteIndex);
+    } else {
+      noteIndex = noteValArr[C3ref][i];
+      synthMain.triggerRelease(noteIndex);
     }
-  //  if (keyboardOptions[i]){
-  //   let noteIndex = noteValArr[C3ref][i];
-  //   synthMain.triggerRelease(noteIndex)
-  //  }
   }
 }
 
