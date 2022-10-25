@@ -31,14 +31,15 @@ function initAudio() {
       release: rel
     }
   }).toDestination();
-  mstrVolume = Tone.Master.volume.value = -10; // In decibels
 
   // Volume Control
-  // let volSlider = document.getElementById('_volCtrl');
-  // volSlider.addEventListener('change', function(e) {
-  //   mstrVolume.value = e.currentTarget.value
-  //   console.log(mstrVolume.value)
-  // });
+  let volSlider = document.getElementById('_volCtrl');
+  const volVal = volSlider.addEventListener('change', function(e) {
+    Tone.Master.volume.value = e.currentTarget.value
+    console.log(mstrVolume)
+  });
+
+  // mstrVolume = Tone.Master.volume.value = volVal; // In decibels
 
   waveform = new Tone.Waveform();
   Tone.Master.connect(waveform);
