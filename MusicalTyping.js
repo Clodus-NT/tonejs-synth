@@ -18,6 +18,7 @@ const keyboardOptions = [
 ];
 
  // Reference index point for the C3 note range in noteValArr
+ // This will be the default note range on page load
 let C3ref = 3;
 
 // Handles both note range selector and musical typing
@@ -30,12 +31,16 @@ function handleMusicalTyping() {
   }
   // Checks for key character in keyboardOptions
   // Then assigns a note within given range to that key
+  // const now = Tone.now();
   for (let i = 0; i < keyboardOptions.length; i++) {
     if (keyIsPressed && key === keyboardOptions[i]) {
       let noteIndex = noteValArr[C3ref][i];
-      synthMain.triggerAttackRelease(noteIndex, 0.2);
-      // console.log(noteIndex)
+      synthMain.triggerAttackRelease(noteIndex);
     }
+  //  if (keyboardOptions[i]){
+  //   let noteIndex = noteValArr[C3ref][i];
+  //   synthMain.triggerRelease(noteIndex)
+  //  }
   }
 }
 
@@ -47,18 +52,18 @@ function createKeys() {
     keyboardLI.innerText = keyboardOptions[i].toUpperCase();
     keyboardLI.classList.add('key');
     keyboardUL.append(keyboardLI);
-    if (
-      keyboardOptions[i] === 'w' || 
-      keyboardOptions[i] === 'e' ||
-      keyboardOptions[i] === 't' ||
-      keyboardOptions[i] === 'y' ||
-      keyboardOptions[i] === 'u' ||
-      keyboardOptions[i] === 'o' ||
-      keyboardOptions[i] === 'p'
-    ) {
-      keyboardLI.classList.add('black-key');
-    } else {
-      keyboardLI.classList.add('white-key');
+    switch (keyboardOptions[i]) {
+      case 'w':
+      case 'e':
+      case 't':
+      case 'y':
+      case 'u':
+      case 'o':
+      case 'p':
+        keyboardLI.classList.add('black-key');
+        break;
+      default:
+        keyboardLI.classList.add('white-key');
     }
   }
 }

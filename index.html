@@ -20,7 +20,7 @@
       <div id="_modulation" class="modulation">
         <!-- Volume -->
         <div class="volume">
-          <input id="_volCtrl" class="input" type="range" name="volume" min="-60" max="0.1" value="-10" step="any">
+          <input id="_volCtrl" class="input" type="range" name="volume" min="-40" max="0.1" value="-10" step="any">
           <label for="volume">Volume</label>
         </div>
         <!-- Swap Waveforms -->
@@ -32,16 +32,16 @@
         </div>
         <!-- Envelope Controls -->
         <div id="_envCtrl" class="envCtrl">
-          <input class="input" type="range" name="attack">
+          <input id="_attSlider" class="input" type="range" name="attack" min="0" max="2" step="any">
           <label class="input" for="attack">Attack</label>
           <br>
-          <input class="input" type="range" name="decay">
+          <input id="_decSlider" class="input" type="range" name="decay" min="0" max="2" step="any">
           <label for="decay">Decay</label>
           <br>
-          <input class="input" type="range" name="sustain">
+          <input id="_susSlider" class="input" type="range" name="sustain" min="0" max="1" step="any">
           <label for="sustain">Sustain</label>
           <br>
-          <input class="input" type="range" name="release">
+          <input id="_relSlider" class="input" type="range" name="release" min="0" max="5" step="any">
           <label for="release">Release</label>
         </div>
       </div>
