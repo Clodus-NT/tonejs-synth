@@ -14,15 +14,14 @@
   <body>
     <!-- Main Container -->
     <div id="_synthesizer" class="synthesizer">
-      Waveform Visuals
-      <div id="_canvas" class="canvasContainer"></div>
-      <!-- Modulation/Options -->
-      <div id="_modulation" class="modulation">
+      <div class="volVisWav">
         <!-- Volume -->
         <div class="volume">
           <input id="_volCtrl" class="input" type="range" name="volume" min="-40" max="0.1" value="-10" step="any">
           <label class="volLabel" for="volume">Volume</label>
         </div>
+        <!-- Waveform Visualizer -->
+        <div id="_canvas" class="canvasContainer"></div>
         <!-- Swap Waveforms -->
         <div id="_wavCtrl" class="wavCtrl">
           <button id="_sineBtn" class="sineBtn" type="submit" onClick="selectSine()">Sine</button>
@@ -30,6 +29,9 @@
           <button id="_sawBtn" class="sawBtn" onClick="selectSaw()">Sawtooth</button>
           <button id="_squareBtn" class="squareBtn" onClick="selectSquare()">Square</button>
         </div>
+      </div>
+      <!-- Modulation/Options -->
+      <div id="_modulation" class="modulation">
         <!-- Envelope Controls -->
         <div id="_envCtrl" class="envCtrl">
           <div class="envSliders">

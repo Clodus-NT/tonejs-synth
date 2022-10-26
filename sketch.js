@@ -2,7 +2,7 @@ let ready = false;
 let oscMain, synthMain, mstrVolume, ampEnv, waveform, masterVolume, buffer, canvas;
 // *******************************************************
 function setup() {
-  canvas = createCanvas(windowWidth/2.5, windowHeight/3);
+  canvas = createCanvas(windowWidth/1.55, windowHeight/3);
   canvas.parent('_canvas')
   frameRate(30);
   createKeys();
@@ -23,6 +23,6 @@ function mousePressed() {
   }
 }
 // *******************************************************
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight);
+// }

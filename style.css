@@ -4,9 +4,17 @@ html, body {
 }
 
 body {
-  background-color: rgb(15, 15, 15);
+  background-color: rgb(106, 106, 106);
   /* background-color: rgb(31, 31, 31); */
 }
+
+/* .wrapper {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+} */
 
 .canvasContainer {
   display: flex;
@@ -14,8 +22,25 @@ body {
   align-items: center;
 }
 
+/* #_canvas {
+  border: 2px solid #393939;
+  border-radius: 15px;
+} */
+
 canvas {
   display: block;
+  border-radius: 15px;
+  border: 2px solid #393939;
+  box-shadow: 0 0 5px 1px rgba(137, 137, 137, 0.634);
+}
+
+.synthesizer {
+  background-color: rgb(15, 15, 15);
+  margin: 10px 45px 10px 45px;
+  border: solid #393939;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: inset 0 0 5px 1px rgba(137, 137, 137, 0.634);
 }
 
 .modulation {
@@ -26,6 +51,16 @@ canvas {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+
+.volVisWav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: #1d1d1d;
+  border: solid #393939;
+  border-radius: 15px;
+  box-shadow: inset 0 0 5px 1px rgba(137, 137, 137, 0.634); */
 }
 
 .envCtrl {
@@ -87,17 +122,18 @@ canvas {
 }
 
 .wavCtrl {
-  height: 50%;
+  /* height: 75%; */
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #393939;
   height: 200px;
   border-radius: 15px;
   box-shadow: 0 0 5px 1px rgba(212, 212, 212, 0.634);
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px 45px 10px 45px;
+  /* padding-left: 10px;
+  padding-right: 10px; */
 }
 
 .envCtrl {
@@ -160,11 +196,25 @@ canvas {
   box-shadow: 0 0 5px 2px rgb(88, 88, 88);
 }
 
+.keyboard {
+  margin: auto;
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 5px;
+  background-color: #393939;
+  height: 200px;
+  border-radius: 15px;
+  box-shadow: 0 0 5px 1px rgba(212, 212, 212, 0.634);
+}
+
 .keyboardUL {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: auto;
+  margin: 0;
+  padding: 0;
   position: relative;
 }
 
