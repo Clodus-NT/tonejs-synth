@@ -25,9 +25,12 @@ function mousePressed() {
   // selectWavform();
 }
 // *******************************************************
-function keyPressed() {
-  handleMusicalTyping();
-}
+// function keyPressed() {
+//   handleMusicalTyping();
+// }
+// function keyReleased() {
+//   handleMusicalTyping();
+// }
 // *******************************************************
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);

@@ -8,37 +8,11 @@ function audioCtxReady() {
   } 
 }
 
-// // Envelope Controls
-//     // Attack
-//   const attSlider = document.getElementById('_attSlider');
-//   const attVal = attSlider.addEventListener('change', function(e) {
-//     // ampEnv.attack = e.currentTarget.value;
-//     synthMain.envelope.attack = e.currentTarget.value;
-//   });
-//     // Decay
-//   const decSlider = document.getElementById('_decSlider');
-//   const decVal = decSlider.addEventListener('change', function(e) {
-//     // ampEnv.decay = e.currentTarget.value;
-//     synthMain.envelope.decay = e.currentTarget.value;
-//   });
-//     // Sustain
-//   const susSlider = document.getElementById('_susSlider');
-//   const susVal = susSlider.addEventListener('change', function(e) {
-//     // ampEnv.sustain = e.currentTarget.value;
-//     synthMain.envelope.sustain = e.currentTarget.value;
-//   });
-//     // Release
-//   const relSlider = document.getElementById('_relSlider');
-//   const relVal = susSlider.addEventListener('change', function(e) {
-//     // ampEnv.release = e.currentTarget.value;
-//     synthMain.envelope.release = e.currentTarget.value;
-//   });
-
   // Volume Control
-  const volSlider = document.getElementById('_volCtrl');
-  const volVal = volSlider.addEventListener('change', function(e) {
-    Tone.Master.volume.value = e.currentTarget.value
-  });
+const volSlider = document.getElementById('_volCtrl');
+const volVal = volSlider.addEventListener('change', function(e) {
+  Tone.Master.volume.value = e.currentTarget.value
+});
 
 function initAudio() {
   // Create Synth
