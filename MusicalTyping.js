@@ -1,4 +1,5 @@
 // Maybe a buit long winded, but easiest way I could think of to populate note values into an array of arrays
+// Tone will later convert these into frequency values when fed to triggerAttack() in keydown event handling
 let C0_Oct = ['C0', 'C#0', 'D0', 'D#0', 'E0', 'F0', 'F#0', 'G0', 'G#0', 'A0', 'A#0', 'B0', 'C1', 'C#1', 'D1', 'D#1', 'E1', 'F1']; 
 let C1_Oct = ['C1', 'C#1', 'D1', 'D#1', 'E1', 'F1', 'F#1', 'G1', 'G#1', 'A1', 'A#1', 'B1', 'C2', 'C#2', 'D2', 'D#2', 'E2', 'F2']; 
 let C2_Oct = ['C2', 'C#2', 'D2', 'D#2', 'E2', 'F2', 'F#2', 'G2', 'G#2', 'A2', 'A#2', 'B2', 'C3', 'C#3', 'D3', 'D#3', 'E3', 'F3']; 
@@ -20,26 +21,27 @@ const keyboardOptions = [
 // Handles both note range selector and musical typing
 let C3ref = 3; // Default index point for note range
 let noteIndex; // later assigned
-// Key Held
+
+// Musical Typing event handling
+  // KeyDown (triggerAttack())
 document.addEventListener('keydown', (e) => {
-  if (e.repeat) return;
+  if (e.repeat) return; // Without this, the note would fire infinitely until released
   if (e.key === 'z') {
-    C3ref--;
+    C3ref--; // Dec default index for note range
   } else if (e.key === 'x') {
-    C3ref++;
+    C3ref++; // Inc default index for note range
   }
   for (let i = 0; i < keyboardOptions.length; i++) {
     if (e.key === keyboardOptions[i]) {
-      noteIndex = noteValArr[C3ref][i];
-      synthMain.triggerAttack(noteIndex);
+      noteIndex = noteValArr[C3ref][i]; // C3ref serves as entry index into noteValArr
+      synthMain.triggerAttack(noteIndex); // Trigger note at given index
     }
   }
 });
-// Key Release
+  // KeyUp (triggerRelease())
 document.addEventListener('keyup', (e) => {
   for (let i = 0; i < keyboardOptions.length; i++) {
     if (e.key === keyboardOptions[i]) {
-      noteIndex = noteValArr[C3ref][i];
       synthMain.triggerRelease();
     }
   }
@@ -49,10 +51,10 @@ document.addEventListener('keyup', (e) => {
 function createKeys() {
   for (let i = 0; i < keyboardOptions.length; i++) {
     const keyboardUL = document.getElementById('_keyboardUL');
-    const keyboardLI = document.createElement('_keyboardLI');
-    keyboardLI.innerText = keyboardOptions[i].toUpperCase();
+    const keyboardLI = document.createElement('_keyboardLI'); // Create <li> * 18 (the length of keyboardOptions)
+    keyboardLI.innerText = keyboardOptions[i].toUpperCase(); // Display the corresponding option on each key 
     keyboardLI.classList.add('key');
-    keyboardUL.append(keyboardLI);
+    keyboardUL.append(keyboardLI); // Append each created key to the unordered list
     switch (keyboardOptions[i]) {
       case 'w':
       case 'e':

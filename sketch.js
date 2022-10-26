@@ -12,9 +12,8 @@ function draw() {
   background(25);
   audioCtxReady();
   if (ready) {
-    drawWave();
+    drawWave(); // Waveform Visualizer
   }
-  // createVis();
 }
 // *******************************************************
 function mousePressed() {
@@ -22,15 +21,7 @@ function mousePressed() {
     ready = true;
     initAudio();
   }
-  // selectWavform();
 }
-// *******************************************************
-// function keyPressed() {
-//   handleMusicalTyping();
-// }
-// function keyReleased() {
-//   handleMusicalTyping();
-// }
 // *******************************************************
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
