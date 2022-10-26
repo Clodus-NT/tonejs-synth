@@ -19,10 +19,10 @@ function initAudio() {
   synthMain = new Tone.Synth({
     oscillator: {type: 'sine'},
     envelope: {
-      attack: 0.03,
+      attack: 0.035,
       decay: 1,
-      sustain: 0,
-      release: 0.01
+      sustain: 0.5,
+      release: 0.5
     }
   }).toDestination();
 
