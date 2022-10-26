@@ -1,11 +1,8 @@
-// document.addEventListener('keydown', (e) => {
-//   if (e.repeat) return;
-//   if(e.key === 'm') {
-//     console.log('m')
-//   }
+// document.addEventListener('mousedown', (e) => {
+//   // if (e.repeat) return;
 //   console.log('held')
 // })
 
-// document.addEventListener('keyup', (e) => {
+// document.addEventListener('mouseup', (e) => {
 //   console.log('released")')
 // })

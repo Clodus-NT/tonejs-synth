@@ -9,8 +9,9 @@ let C5_Oct = ['C5', 'C#5', 'D5', 'D#5', 'E5', 'F5', 'F#5', 'G5', 'G#5', 'A5', 'A
 let C6_Oct = ['C6', 'C#6', 'D6', 'D#6', 'E6', 'F6', 'F#6', 'G6', 'G#6', 'A6', 'A#6', 'B6', 'C7', 'C#7', 'D7', 'D#7', 'E7', 'F7']; 
 let C7_Oct = ['C7', 'C#7', 'D7', 'D#7', 'E7', 'F7', 'F#7', 'G7', 'G#7', 'A7', 'A#7', 'B7', 'C8', 'C#8', 'D8', 'D#8', 'E8', 'F8'];
 let noteValArr = [];
-noteValArr.push(C0_Oct, C1_Oct, C2_Oct, C3_Oct, C4_Oct, C5_Oct, C6_Oct, C7_Oct); // Hold all note ranges
+noteValArr.push(C0_Oct, C1_Oct, C2_Oct, C3_Oct, C4_Oct, C5_Oct, C6_Oct, C7_Oct); // Holds all note ranges
 
+// *******************************************************
 // These are the keyboard characters that will allow musical typing
 // The length of this array is the same length as each note range array
 const keyboardOptions = [
@@ -18,13 +19,17 @@ const keyboardOptions = [
   'h', 'u', 'j', 'k', 'o', 'l', 'p', ';', '\''
 ];
 
+// *******************************************************
 // Handles both note range selector and musical typing
 let C3ref = 3; // Default index point for note range
 let noteIndex; // later assigned
 
+// *******************************************************
 // Musical Typing event handling
   // KeyDown (triggerAttack())
 document.addEventListener('keydown', (e) => {
+  // let keyLI = document.querySelectorAll('.key');
+
   if (e.repeat) return; // Without this, the note would fire infinitely until released
   if (e.key === 'z') {
     C3ref--; // Dec default index for note range
@@ -35,11 +40,24 @@ document.addEventListener('keydown', (e) => {
     if (e.key === keyboardOptions[i]) {
       noteIndex = noteValArr[C3ref][i]; // C3ref serves as entry index into noteValArr
       synthMain.triggerAttack(noteIndex); // Trigger note at given index
+      // switch (keyboardOptions[i]) {
+      //   case 'w':
+      //   case 'e':
+      //   case 't':
+      //   case 'y':
+      //   case 'u':
+      //   case 'o':
+      //   case 'p':
+      //     keyLI.classList.add('black-key_held');
+      //     break;
+      //   default:
+      //     keyLI.classList.add('white-key_held');
+      // }
     }
   }
 });
   // KeyUp (triggerRelease())
-document.addEventListener('keyup', (e) => {
+let relNote = document.addEventListener('keyup', (e) => {
   for (let i = 0; i < keyboardOptions.length; i++) {
     if (e.key === keyboardOptions[i]) {
       synthMain.triggerRelease();
@@ -47,11 +65,54 @@ document.addEventListener('keyup', (e) => {
   }
 });
 
-// Generate Keys
-function createKeys() {
+// *******************************************************
+// Highlight Keys (passed into event handlers)
+  // Keydown (Highlight)
+// document.addEventListener('keydown', (e) => {
+//   let keyLI = document.getElementsByClassName('.key');
+//   for (let i = 0; i < keyLI.length; i++) {
+//     switch (e.key === keyboardOptions[i]) {
+//       case 'w':
+//       case 'e':
+//       case 't':
+//       case 'y':
+//       case 'u':
+//       case 'o':
+//       case 'p':
+//         keyLI.classList.add('black-key_held');
+//         break;
+//       default:
+//         keyLI.classList.add('white-key_held');
+//     }
+//   }
+//   console.log(keyLI)
+// })
+  // Keyup (Remove Highlight)
+// document.addEventListener('keyup', (e) => {
+//   let keyLI = document.getElementsByClassName('.key');
+//   for (let i = 0; i < keyboardOptions.length; i++) {
+//     switch (e.key === keyboardOptions[i]) {
+//       case 'w':
+//       case 'e':
+//       case 't':
+//       case 'y':
+//       case 'u':
+//       case 'o':
+//       case 'p':
+//         keyLI.classList.remove('black-key_held');
+//         break;
+//       default:
+//         keyLI.classList.remove('white-key_held');
+//     }
+//   }
+// })
+
+// *******************************************************
+// Generate Keys & Handle the mouse hover styling
+// function createKeys() {
   for (let i = 0; i < keyboardOptions.length; i++) {
     const keyboardUL = document.getElementById('_keyboardUL');
-    const keyboardLI = document.createElement('_keyboardLI'); // Create <li> * 18 (the length of keyboardOptions)
+    const keyboardLI = document.createElement('li'); // Create <li> * 18 (the length of keyboardOptions)
     keyboardLI.innerText = keyboardOptions[i].toUpperCase(); // Display the corresponding option on each key 
     keyboardLI.classList.add('key');
     keyboardUL.append(keyboardLI); // Append each created key to the unordered list
@@ -68,5 +129,40 @@ function createKeys() {
       default:
         keyboardLI.classList.add('white-key');
     }
+    // document.addEventListener('keydown', (e) => {
+    //     switch (keyboardOptions[i]) {
+    //       case 'w':
+    //       case 'e':
+    //       case 't':
+    //       case 'y':
+    //       case 'u':
+    //       case 'o':
+    //       case 'p':
+    //         keyboardLI.classList.add('black-key_held');
+    //         break;
+    //       default:
+    //         keyboardLI.classList.add('white-key_held');
+    //     }
+    //   })
   }
-}
+// }
+
+document.addEventListener('DOMContentLoaded', () => {
+  let keyLI = document.getElementsByClassName('.key')
+  console.log(keyLI)
+  // document.addEventListener('keydown', (e) => {
+  //   switch (keyboardOptions[i]) {
+  //     case 'w':
+  //     case 'e':
+  //     case 't':
+  //     case 'y':
+  //     case 'u':
+  //     case 'o':
+  //     case 'p':
+  //       keyboardLI.classList.add('black-key_held');
+  //       break;
+  //     default:
+  //       keyboardLI.classList.add('white-key_held');
+  //   }
+  // })
+})

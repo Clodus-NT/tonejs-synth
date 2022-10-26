@@ -8,12 +8,14 @@ function audioCtxReady() {
   } 
 }
 
+// *******************************************************
   // Volume Control
 const volSlider = document.getElementById('_volCtrl');
 const volVal = volSlider.addEventListener('change', function(e) {
   Tone.Master.volume.value = e.currentTarget.value
 });
 
+// *******************************************************
 function initAudio() {
   // Create Synth
   synthMain = new Tone.Synth({
@@ -26,6 +28,7 @@ function initAudio() {
     }
   }).toDestination();
 
+// *******************************************************
   // Envelope Controls
     // Attack
   const attSlider = document.getElementById('_attSlider');
@@ -48,6 +51,7 @@ function initAudio() {
     synthMain.envelope.release = e.currentTarget.value;
   });
 
+// *******************************************************
   // Volume Control
   const volSlider = document.getElementById('_volCtrl');
   volSlider.addEventListener('change', function(e) {
@@ -58,12 +62,14 @@ function initAudio() {
   Tone.Master.connect(waveform);
 }
 
+// *******************************************************
 // Select the waveform handling
 const selectSine = () => synthMain.oscillator.type = 'sine';
 const selectTri = () => synthMain.oscillator.type = 'triangle';
 const selectSaw = () => synthMain.oscillator.type = 'sawtooth';
 const selectSquare = () => synthMain.oscillator.type = 'square';
 
+// *******************************************************
 // Draw Waveform to Canvas & Button Styling
 function drawWave() {
   let sineWavBtn = document.getElementById('_sineBtn');
