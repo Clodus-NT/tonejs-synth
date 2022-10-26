@@ -14,14 +14,14 @@
   <body>
     <!-- Main Container -->
     <div id="_synthesizer" class="synthesizer">
-      <!-- Waveform Visuals -->
-      <div id="_canvas"></div>
+      Waveform Visuals
+      <div id="_canvas" class="canvasContainer"></div>
       <!-- Modulation/Options -->
       <div id="_modulation" class="modulation">
         <!-- Volume -->
         <div class="volume">
           <input id="_volCtrl" class="input" type="range" name="volume" min="-40" max="0.1" value="-10" step="any">
-          <label for="volume">Volume</label>
+          <label class="volLabel" for="volume">Volume</label>
         </div>
         <!-- Swap Waveforms -->
         <div id="_wavCtrl" class="wavCtrl">
@@ -32,17 +32,22 @@
         </div>
         <!-- Envelope Controls -->
         <div id="_envCtrl" class="envCtrl">
-          <input id="_attSlider" class="input" type="range" name="attack" min="0" max="2" step="any" value="0.035">
-          <label class="input" for="attack">Attack</label>
-          <br>
-          <input id="_decSlider" class="input" type="range" name="decay" min="0" max="2" step="any" value="1">
-          <label for="decay">Decay</label>
-          <br>
-          <input id="_susSlider" class="input" type="range" name="sustain" min="0" max="1" step="any" value="0.5">
-          <label for="sustain">Sustain</label>
-          <br>
-          <input id="_relSlider" class="input" type="range" name="release" min="0" max="5" step="any" value="0.5">
-          <label for="release">Release</label>
+          <div class="envSliders">
+            <input id="_attSlider" class="input" type="range" name="attack" min="0" max="2" step="any" value="0.035">
+            <label class="envLabel" for="attack">Attack</label>
+          </div>
+          <div class="envSliders">
+            <input id="_decSlider" class="input" type="range" name="decay" min="0" max="2" step="any" value="1">
+            <label class="envLabel" for="decay">Decay</label>
+          </div>
+          <div class="envSliders">
+            <input id="_susSlider" class="input" type="range" name="sustain" min="0" max="1" step="any" value="0.5">
+            <label class="envLabel" for="sustain">Sustain</label>
+          </div>
+          <div class="envSliders">
+            <input id="_relSlider" class="input" type="range" name="release" min="0" max="5" step="any" value="0.5">
+            <label class="envLabel" for="release">Release</label>
+          </div>
         </div>
       </div>
       <!-- Keyboard -->
