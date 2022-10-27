@@ -40,19 +40,6 @@ document.addEventListener('keydown', (e) => {
     if (e.key === keyboardOptions[i]) {
       noteIndex = noteValArr[C3ref][i]; // C3ref serves as entry index into noteValArr
       synthMain.triggerAttack(noteIndex); // Trigger note at given index
-      // switch (keyboardOptions[i]) {
-      //   case 'w':
-      //   case 'e':
-      //   case 't':
-      //   case 'y':
-      //   case 'u':
-      //   case 'o':
-      //   case 'p':
-      //     keyLI.classList.add('black-key_held');
-      //     break;
-      //   default:
-      //     keyLI.classList.add('white-key_held');
-      // }
     }
   }
 });
@@ -64,48 +51,6 @@ let relNote = document.addEventListener('keyup', (e) => {
     }
   }
 });
-
-// *******************************************************
-// Highlight Keys (passed into event handlers)
-  // Keydown (Highlight)
-// document.addEventListener('keydown', (e) => {
-//   let keyLI = document.getElementsByClassName('.key');
-//   for (let i = 0; i < keyLI.length; i++) {
-//     switch (e.key === keyboardOptions[i]) {
-//       case 'w':
-//       case 'e':
-//       case 't':
-//       case 'y':
-//       case 'u':
-//       case 'o':
-//       case 'p':
-//         keyLI.classList.add('black-key_held');
-//         break;
-//       default:
-//         keyLI.classList.add('white-key_held');
-//     }
-//   }
-//   console.log(keyLI)
-// })
-  // Keyup (Remove Highlight)
-// document.addEventListener('keyup', (e) => {
-//   let keyLI = document.getElementsByClassName('.key');
-//   for (let i = 0; i < keyboardOptions.length; i++) {
-//     switch (e.key === keyboardOptions[i]) {
-//       case 'w':
-//       case 'e':
-//       case 't':
-//       case 'y':
-//       case 'u':
-//       case 'o':
-//       case 'p':
-//         keyLI.classList.remove('black-key_held');
-//         break;
-//       default:
-//         keyLI.classList.remove('white-key_held');
-//     }
-//   }
-// })
 
 // *******************************************************
 // Generate Keys & Handle the mouse hover styling
