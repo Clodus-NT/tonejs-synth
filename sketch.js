@@ -2,7 +2,8 @@ let ready = false;
 let oscMain, synthMain, mstrVolume, ampEnv, waveform, masterVolume, buffer, canvas;
 // *******************************************************
 function setup() {
-  canvas = createCanvas(windowWidth/1.55, windowHeight/3);
+  canvas = createCanvas(800, 315);
+  // canvas = createCanvas(windowWidth/1.55, windowHeight/3);
   canvas.parent('_canvas')
   frameRate(30);
   // createKeys();

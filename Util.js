@@ -133,3 +133,18 @@ function drawWave() {
   vertex(0, height); // bottom left
   endShape(CLOSE);
 }
+
+// *******************************************************
+// Show/Hide Instructions
+const instructions = document.getElementById('_instructions');
+const expandInstructBtn = document.getElementById('_showInstructBtn');
+
+const showInstructions = () => {
+  instructions.style.display='block';
+  expandInstructBtn.style.display='none';
+}
+
+const hideInstructions = () => {
+  instructions.style.display='none';
+  expandInstructBtn.style.display='block';
+}

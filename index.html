@@ -6,7 +6,8 @@
 
     <title>Clo-Synth</title>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <link rel="stylesheet" type="text/css" href="index.css">
     <script src="lib/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
   </head>
@@ -35,19 +36,19 @@
       <div id="_modulation" class="modulation">
         <!-- Envelope Controls -->
         <div id="_envCtrl" class="envCtrl">
-          <div class="envSliders">
+          <div class="attContainer envSliders">
             <input id="_attSlider" class="input" type="range" name="attack" min="0" max="2" step="any" value="0.035">
             <label class="envLabel" for="attack">Attack</label>
           </div>
-          <div class="envSliders">
+          <div class="decContainer envSliders">
             <input id="_decSlider" class="input" type="range" name="decay" min="0" max="2" step="any" value="1">
             <label class="envLabel" for="decay">Decay</label>
           </div>
-          <div class="envSliders">
+          <div class="susContainer envSliders">
             <input id="_susSlider" class="input" type="range" name="sustain" min="0" max="1" step="any" value="0.5">
             <label class="envLabel" for="sustain">Sustain</label>
           </div>
-          <div class="envSliders">
+          <div class="relContainer envSliders">
             <input id="_relSlider" class="input" type="range" name="release" min="0" max="5" step="any" value="0.5">
             <label class="envLabel" for="release">Release</label>
           </div>
@@ -61,7 +62,13 @@
     </div>
   </div>
   <!-- ***** Instructions ***** -->
-  <div class="instructions">
+  <div>
+    <button id="_showInstructBtn" class="showInstructBtn" onClick="showInstructions()">Instructions</button>
+  </div>
+  <div id="_instructions" class="instructions">
+    <div>
+      <button id="_hideInstructBtn" class="hideInstructBtn" onClick="hideInstructions()">Hide Instructions</button>
+    </div>
     <h1 class="instructTitle">How to Use:</h1>
     <!-- Playing Notes -->
     <div>
