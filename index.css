@@ -257,6 +257,8 @@ canvas {
 }
 
 .showInstructBtn {
+  display: flex;
+  justify-content: center;
   outline: none;
   margin: auto;
   padding: 10px;
@@ -270,7 +272,6 @@ canvas {
 
 .hideInstructBtn {
   outline: none;
-  margin: auto;
   padding: 10px;
   border: 2px solid rgb(66, 66, 66);
   border-radius: 10px;
@@ -281,6 +282,7 @@ canvas {
 }
 
 .instructions {
+  display: none;
   margin: 35px 75px 35px 75px;
   padding: 40px;
   font-family: sans-serif;
