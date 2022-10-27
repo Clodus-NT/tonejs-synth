@@ -60,6 +60,66 @@
       </div>
     </div>
   </div>
+  <div class="instructions">
+    <h1 class="instructTitle">How to Use:</h1>
+    <!-- Playing Notes -->
+    <div>
+      <h2>Play Notes with Your Laptop/PC Keyboard</h2>
+      <p class="noteInstruct">
+        You can use the keys on your laptop/desktop computer keyboard to play notes. If you look at the synthesizer keyboard, there is a letter (or character) on each key. That letter (or character) is the corresponding key to type that will play a note. In order, the options you can type to play are: A, W, S, E, D, F, T, G, Y, H, U, J, K, O, L, P, ; <-(semicolon), ' <-(single quote). *NOTE: Keys do NOT need to be capitilized in order to work.*
+      </p>
+    </div>
+    <!-- Selecting Note Range -->
+    <div>
+      <h2>Selecting Note Range</h2>
+      <p class="rangeInstruct">
+        There are 8 selectable note ranges:
+        <ul class="rangeUL">
+          <li class="rangeLI">C0-F1</li>
+          <li class="rangeLI">C1-F2</li>
+          <li class="rangeLI">C2-F3</li>
+          <li class="rangeLI">C3-F4 (default)</li>
+          <li class="rangeLI">C4-F5</li>
+          <li class="rangeLI">C5-F6</li>
+          <li class="rangeLI">C6-F7</li>
+          <li class="rangeLI">C7-F8</li>
+        </ul>
+      </p>
+      <h3>Select Lower Range</h3>
+      <p>
+        By pressing "Z", the playable note range will drop to the note range below the current. For example, if the selected note range is C3-F4, pressing "Z" will select the C2-F4 range.
+      </p>
+      <h3>Select Higher Range</h3>
+      <p>
+        By pressing "X", the playable note range will move up to the note range above the current. For example, if the selected note range is C5-F6, pressing "X" will select the C6-F7 range.
+      </p>
+    </div>
+    <!-- Waveform Selection -->
+    <div>
+      <h2 class="wavInstruct">Selecting Waveform</h2>
+      <p>
+        There are 4 selectable waveforms:
+        <ul>
+          <li>Sine (default)</li>
+          <li>Triangle</li>
+          <li>Sawtooth</li>
+          <li>Square</li>
+        </ul>
+        To choose which waveform you would like to use, simply click on the corresponding button.
+      </p>
+    </div>
+    <!-- Envelope Description -->
+    <div>
+      <h2>ADSR Envelope</h2>
+      <p>If you are unfamiliar with how an ADSR (attack, decay, sustain, release) envelope works, I recommend checking out <a target="_blank" class="envArticle" href="https://www.masterclass.com/articles/adsr-envelope-explained">this</a> article that does a great job explaining what they are. Don't feel bad if it still isn't making sense. Just play around! Adjust the sliders to random positions and see what happens. Try pulling every slider all the way down and then adjust one at a time to see how they relate to one another. The concept of an envelope feels kind of abstract when you are first learning how to use them, but keep at it and you will be able to shape some cool sound!</p>
+      <ul>
+        <li>Attack: the higher the slider, the longer the attack time</li>
+        <li>Decay: the higher the slider, the longer the decay time before resting at the level of sustain</li>
+        <li>Sustain: the higher the slider, the higher the level of sustain</li>
+        <li>Release: the higher the slider, the longer the release time</li>
+      </ul>
+    </div>
+  </div>
     <script src="Brainstorm.js"></script>
     <script src="MusicalTyping.js"></script>
     <script src="Util.js"></script>
