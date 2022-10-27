@@ -140,11 +140,11 @@ const instructions = document.getElementById('_instructions');
 const expandInstructBtn = document.getElementById('_showInstructBtn');
 
 const showInstructions = () => {
-  instructions.style.display='flex';
+  instructions.style.display='block';
   expandInstructBtn.style.display='none';
 }
 
 const hideInstructions = () => {
   instructions.style.display='none';
-  expandInstructBtn.style.display='block';
+  expandInstructBtn.style.display='flex';
 }
