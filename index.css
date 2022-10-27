@@ -256,11 +256,13 @@ canvas {
   cursor: pointer;
 }
 
-.showInstructBtn {
+.showBtnContainer {
   display: flex;
   justify-content: center;
+}
+
+.showInstructBtn {
   outline: none;
-  margin: auto;
   padding: 10px;
   border: 2px solid rgb(66, 66, 66);
   border-radius: 10px;
