@@ -22,11 +22,8 @@ const keyboardOptions = [
 // *******************************************************
   // Handles both note range selector and musical typing
 let C3ref = 3; // Default index point for note range
-let globalRngRef;
 let noteIndex; // later assigned value of noteValArr[C3Ref]
-let currentNoteRange = noteValArr[C3ref];
-let globalKeyDown;
-let noteRangeDisplay;
+let globalKeyDown; // Used in keydown event listener
 
 // *******************************************************
 // Musical Typing event handling
@@ -53,36 +50,51 @@ document.addEventListener('keyup', (e) => {
   }
 });
 
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'q') {
-    console.log(C3ref)
+// *******************************************************
+  // Click Note event handling
+document.addEventListener('mousedown', (e) => {
+  for (let i = 0; i < keyboardOptions.length; i++) {
+    if (e.target === keyboardOptions[i]) {
+      noteIndex = noteValArr[C3ref][i]; // C3ref serves as entry index into noteValArr
+      synthMain.triggerAttack(noteIndex); // Trigger note at given index
+    }
   }
 })
 
 // *******************************************************
   // Change Note Range
-  document.addEventListener('keydown', (e) => {
-    if (e.repeat) return;
+let individualNote;
+document.addEventListener('keydown', (e) => {
+  if (e.repeat) return; // Prevents note ranges from cycling rapidly on keydown
+  if (e.key === 'z') {
+    C3ref--; // Dec default index for note range
+  } else if (e.key === 'x') {
+    C3ref++; // Inc default index for note range
+  }
+  // Prevents user from going outside available note ranges
+  if (C3ref < 0) {C3ref = 0;};
+  if (C3ref > 7) {C3ref = 7;};
+  // Dynamically Render Notes
+  for (let k = 0; k < currentNoteRange.length; k++) {
+    individualNote = document.getElementById(`note${k}`);
+    individualNote.innerText = noteValArr[C3ref][k];
+  }
+})
 
-    if (globalKeyDown === 'z') {
-      C3ref--; // Dec default index for note range
-      globalRngRef = C3ref;
-    } else if (globalKeyDown === 'x') {
-      C3ref++; // Inc default index for note range
-      globalRngRef = C3ref;
-    }
-    
-    if (C3ref < 0) {C3ref = 0;}
-    if (C3ref > 7) {C3ref = 7;}
-  })
-
+// *******************************************************
+  // Render Notes to Keyboard
+let noteRangeDisplay;
+let currentNoteRange = noteValArr[C3ref];
 for (let j = 0; j < noteValArr[C3ref].length; j++) {
   const noteRangeContainer = document.getElementById('_currentNoteRange');
   noteRangeDisplay = document.createElement('p');
   noteRangeDisplay.classList.add('currentNoteRange')
-  noteRangeDisplay.innerText = noteValArr[C3ref][j].slice(0, -1);
+  noteRangeDisplay.setAttribute('id', `note${j}`)
+  noteRangeDisplay.innerText = noteValArr[C3ref][j];
   noteRangeContainer.append(noteRangeDisplay);
 }
+  // Render Current Note Range
+
 
 // *******************************************************
   // Generate Keys & Handle the mouse hover styling
