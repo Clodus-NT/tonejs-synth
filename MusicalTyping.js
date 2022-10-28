@@ -12,23 +12,24 @@ let noteValArr = [];
 noteValArr.push(C0_Oct, C1_Oct, C2_Oct, C3_Oct, C4_Oct, C5_Oct, C6_Oct, C7_Oct); // Holds all note ranges
 
 // *******************************************************
-// These are the keyboard characters that will allow musical typing
-// The length of this array is the same length as each note range array
+  // These are the keyboard characters that will allow musical typing
+  // The length of this array is the same length as each note range array
 const keyboardOptions = [
   'a', 'w', 's', 'e', 'd', 'f', 't', 'g', 'y', 
   'h', 'u', 'j', 'k', 'o', 'l', 'p', ';', '\''
 ];
 
 // *******************************************************
-// Handles both note range selector and musical typing
+  // Handles both note range selector and musical typing
 let C3ref = 3; // Default index point for note range
 let noteIndex; // later assigned
 
 // *******************************************************
 // Musical Typing event handling
   // KeyDown (triggerAttack())
+let globalKeyDown;
 document.addEventListener('keydown', (e) => {
-  // let keyLI = document.querySelectorAll('.key');
+  globalKeyDown = e.key // Store the most current key that was pressed
 
   if (e.repeat) return; // Without this, the note would fire infinitely until released
   if (e.key === 'z') {
@@ -46,14 +47,19 @@ document.addEventListener('keydown', (e) => {
   // KeyUp (triggerRelease())
 let relNote = document.addEventListener('keyup', (e) => {
   for (let i = 0; i < keyboardOptions.length; i++) {
-    if (e.key === keyboardOptions[i]) {
+    if (e.key === globalKeyDown) { // Check to see if the most recent keydown = keyup
       synthMain.triggerRelease();
     }
   }
 });
 
+
 // *******************************************************
-// Generate Keys & Handle the mouse hover styling
+  // Mouse Event (keyboard keys)
+// document.addEventListener('mousedown')
+
+// *******************************************************
+  // Generate Keys & Handle the mouse hover styling
 // function createKeys() {
   for (let i = 0; i < keyboardOptions.length; i++) {
     const keyboardUL = document.getElementById('_keyboardUL');
