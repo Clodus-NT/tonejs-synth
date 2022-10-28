@@ -22,30 +22,30 @@ const keyboardOptions = [
 // *******************************************************
   // Handles both note range selector and musical typing
 let C3ref = 3; // Default index point for note range
-let noteIndex; // later assigned
+let globalRngRef;
+let noteIndex; // later assigned value of noteValArr[C3Ref]
+let currentNoteRange = noteValArr[C3ref];
+let globalKeyDown;
+let noteRangeDisplay;
 
 // *******************************************************
 // Musical Typing event handling
   // KeyDown (triggerAttack())
-let globalKeyDown;
 document.addEventListener('keydown', (e) => {
+  if (e.repeat) return; // Without this, the note would infinitely trigger an attack until released
+
   globalKeyDown = e.key // Store the most current key that was pressed
 
-  if (e.repeat) return; // Without this, the note would fire infinitely until released
-  if (e.key === 'z') {
-    C3ref--; // Dec default index for note range
-  } else if (e.key === 'x') {
-    C3ref++; // Inc default index for note range
-  }
   for (let i = 0; i < keyboardOptions.length; i++) {
-    if (e.key === keyboardOptions[i]) {
+    if (globalKeyDown === keyboardOptions[i]) {
       noteIndex = noteValArr[C3ref][i]; // C3ref serves as entry index into noteValArr
       synthMain.triggerAttack(noteIndex); // Trigger note at given index
     }
   }
 });
+
   // KeyUp (triggerRelease())
-let relNote = document.addEventListener('keyup', (e) => {
+document.addEventListener('keyup', (e) => {
   for (let i = 0; i < keyboardOptions.length; i++) {
     if (e.key === globalKeyDown) { // Check to see if the most recent keydown = keyup
       synthMain.triggerRelease();
@@ -53,14 +53,98 @@ let relNote = document.addEventListener('keyup', (e) => {
   }
 });
 
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'q') {
+    console.log(C3ref)
+  }
+})
 
 // *******************************************************
-  // Mouse Event (keyboard keys)
-// document.addEventListener('mousedown')
+  // Change Note Range
+  document.addEventListener('keydown', (e) => {
+    if (e.repeat) return;
+    if (globalKeyDown === 'z') {
+      C3ref--; // Dec default index for note range
+      globalRngRef = C3ref;
+    } else if (globalKeyDown === 'x') {
+      C3ref++; // Inc default index for note range
+      globalRngRef = C3ref;
+    }
+  })
+
+for (let j = 0; j < noteValArr[C3ref].length; j++) {
+  const noteRangeContainer = document.getElementById('_currentNoteRange');
+  noteRangeDisplay = document.createElement('p');
+  noteRangeDisplay.classList.add('currentNoteRange')
+  noteRangeDisplay.innerText = noteValArr[C3ref][j].slice(0, -1);
+  noteRangeContainer.append(noteRangeDisplay);
+
+  // switch (C3ref) {
+  //   case 0:
+  //     noteRangeDisplay.innerText = noteValArr[0][j];
+  //     console.log(C3ref)
+  //     break;
+  //   case 1:
+  //     noteRangeDisplay.innerText = noteValArr[1][j];
+  //     console.log(C3ref)
+  //     break;
+  //   case 2:
+  //     noteRangeDisplay.innerText = noteValArr[2][j];
+  //     console.log(C3ref)
+  //     break;
+  //   case 4:
+  //     noteRangeDisplay.innerText = noteValArr[4][j];
+  //     console.log(C3ref)
+  //     break;
+  //   case 5:
+  //     noteRangeDisplay.innerText = noteValArr[5][j];
+  //     console.log(C3ref)
+  //     break;
+  //   case 6:
+  //     noteRangeDisplay.innerText = noteValArr[6][j];
+  //     console.log(C3ref)
+  //     break;
+  //   case 7:
+  //     noteRangeDisplay.innerText = noteValArr[7][j];
+  //     console.log(C3ref)
+  //     break;
+  //   default:
+  //     noteRangeDisplay.innerText = noteValArr[3][j];
+  //     console.log(C3ref)
+  // }
+}
+
+// if (C3ref > 3 || C3ref < 3) {
+//   noteRangeDisplay = document.querySelectorAll('');
+//   switch (C3ref) {
+//     case 0:
+//       noteRangeDisplay.innerText = noteValArr[0][j];
+//       break;
+//     case 1:
+//       noteRangeDisplay.innerText = noteValArr[1][j];
+//       break;
+//     case 2:
+//       noteRangeDisplay.innerText = noteValArr[2][j];
+//       break;
+//     case 4:
+//       noteRangeDisplay.innerText = noteValArr[4][j];
+//       break;
+//     case 5:
+//       noteRangeDisplay.innerText = noteValArr[5][j];
+//       break;
+//     case 6:
+//       noteRangeDisplay.innerText = noteValArr[6][j];
+//       break;
+//     case 7:
+//       noteRangeDisplay.innerText = noteValArr[7][j];
+//       break;
+//     default:
+//       noteRangeDisplay.innerText = noteValArr[3][j];
+//   }
+// }
 
 // *******************************************************
   // Generate Keys & Handle the mouse hover styling
-// function createKeys() {
   for (let i = 0; i < keyboardOptions.length; i++) {
     const keyboardUL = document.getElementById('_keyboardUL');
     const keyboardLI = document.createElement('li'); // Create <li> * 18 (the length of keyboardOptions)
@@ -80,40 +164,4 @@ let relNote = document.addEventListener('keyup', (e) => {
       default:
         keyboardLI.classList.add('white-key');
     }
-    // document.addEventListener('keydown', (e) => {
-    //     switch (keyboardOptions[i]) {
-    //       case 'w':
-    //       case 'e':
-    //       case 't':
-    //       case 'y':
-    //       case 'u':
-    //       case 'o':
-    //       case 'p':
-    //         keyboardLI.classList.add('black-key_held');
-    //         break;
-    //       default:
-    //         keyboardLI.classList.add('white-key_held');
-    //     }
-    //   })
   }
-// }
-
-document.addEventListener('DOMContentLoaded', () => {
-  let keyLI = document.getElementsByClassName('.key')
-  console.log(keyLI)
-  // document.addEventListener('keydown', (e) => {
-  //   switch (keyboardOptions[i]) {
-  //     case 'w':
-  //     case 'e':
-  //     case 't':
-  //     case 'y':
-  //     case 'u':
-  //     case 'o':
-  //     case 'p':
-  //       keyboardLI.classList.add('black-key_held');
-  //       break;
-  //     default:
-  //       keyboardLI.classList.add('white-key_held');
-  //   }
-  // })
-})
