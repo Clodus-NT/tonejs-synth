@@ -20,17 +20,17 @@ const keyboardOptions = [
 ];
 
 // *******************************************************
-  // Handles both note range selector and musical typing
+  // Global Variables
 let C3ref = 3; // Default index point for note range
 let noteIndex; // later assigned value of noteValArr[C3Ref]
 let globalKeyDown; // Used in keydown event listener
+let individualKey; // Used to add/remove classes in keyup/keydown
 
 // *******************************************************
 // Musical Typing event handling
   // KeyDown (triggerAttack())
 document.addEventListener('keydown', (e) => {
   if (e.repeat) return; // Without this, the note would infinitely trigger an attack until released
-
   globalKeyDown = e.key // Store the most current key that was pressed
 
   for (let i = 0; i < keyboardOptions.length; i++) {
@@ -44,22 +44,13 @@ document.addEventListener('keydown', (e) => {
   // KeyUp (triggerRelease())
 document.addEventListener('keyup', (e) => {
   for (let i = 0; i < keyboardOptions.length; i++) {
-    if (e.key === globalKeyDown) { // Check to see if the most recent keydown = keyup
+    if (globalKeyDown === keyboardOptions[i]) { // Check to see if the most recent keydown = keyup
       synthMain.triggerRelease();
     }
+    // individualKey.classList.remove('black-key_held');
+    // individualKey.classList.remove('white-key_held');
   }
 });
-
-// *******************************************************
-  // Click Note event handling
-document.addEventListener('mousedown', (e) => {
-  for (let i = 0; i < keyboardOptions.length; i++) {
-    if (e.target === keyboardOptions[i]) {
-      noteIndex = noteValArr[C3ref][i]; // C3ref serves as entry index into noteValArr
-      synthMain.triggerAttack(noteIndex); // Trigger note at given index
-    }
-  }
-})
 
 // *******************************************************
   // Change Note Range
@@ -93,8 +84,43 @@ for (let j = 0; j < noteValArr[C3ref].length; j++) {
   noteRangeDisplay.innerText = noteValArr[C3ref][j];
   noteRangeContainer.append(noteRangeDisplay);
 }
-  // Render Current Note Range
 
+// *******************************************************
+  // Handle keydown styling
+document.addEventListener('keydown', () => {
+  for (let l = 0; l < keyboardOptions.length; l++) {
+    individualKey = document.getElementById(`key${l}`);
+    if (globalKeyDown === keyboardOptions[l]) {
+      switch (globalKeyDown) {
+        case 'w':
+        case 'e':
+        case 't':
+        case 'y':
+        case 'u':
+        case 'o':
+        case 'p':
+          individualKey.classList.add('black-key_held');
+          break;
+        default:
+          individualKey.classList.add('white-key_held');
+      }
+    } else if (globalKeyDown !== keyboardOptions[l]) {
+      individualKey.classList.remove('black-key_held');
+      individualKey.classList.remove('white-key_held');
+    }
+  }
+})
+
+  // Handle Keyup Styling Reset
+document.addEventListener('keyup', (e) => {
+  for (let f = 0; f < keyboardOptions.length; f++) {
+    individualKey = document.getElementById(`key${f}`);
+    if (e.key === keyboardOptions[f]) {
+      individualKey.classList.remove('black-key_held');
+      individualKey.classList.remove('white-key_held');
+    }
+  }
+})
 
 // *******************************************************
   // Generate Keys & Handle the mouse hover styling
@@ -103,6 +129,7 @@ for (let j = 0; j < noteValArr[C3ref].length; j++) {
     const keyboardLI = document.createElement('li'); // Create <li> * 18 (the length of keyboardOptions)
     keyboardLI.innerText = keyboardOptions[i].toUpperCase(); // Display the corresponding option on each key 
     keyboardLI.classList.add('key');
+    keyboardLI.setAttribute('id', `key${i}`);
     keyboardUL.append(keyboardLI); // Append each created key to the unordered list
     switch (keyboardOptions[i]) {
       case 'w':
