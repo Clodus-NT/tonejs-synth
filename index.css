@@ -103,13 +103,18 @@ canvas {
   box-shadow: 0 0 5px 2px rgb(88, 88, 88);
 }
 
+.modulation {
+  display: flex;
+  justify-content: center;
+}
+
 .envCtrl {
-  margin: auto;
+  /* margin: auto; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-content: center;
   align-content: center;
-  width: 50rem;
+  width: 50%;
   padding: 15px 5px 15px 5px;
   color: rgb(220, 242, 251);
   font-weight: bolder;
@@ -149,6 +154,79 @@ canvas {
   margin: 55px;
 }
 
+/* @-moz-document url-prefix() {
+  .envCtrl {
+    width: 55%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-content: center;
+  }
+
+  .attContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-around;
+  }
+  
+  .decContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .susContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .relContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+} */
+
+.input[type="range"] {
+  -webkit-appearance: none;
+  height: 12%;
+  margin-top: 60px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: #696969;
+  opacity: 0.7;
+  /* width: 135px; */
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  transform: rotate(270deg);
+  bottom: 15px;
+  box-shadow: inset 0 0 3px 1px rgba(212, 212, 212, 0.634);
+}
+
+.input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: rgb(220, 242, 251);
+  box-shadow: inset 0 0 3px 1px rgb(235, 235, 235);
+  cursor: pointer;
+}
+
+.input::-moz-range-thumb {
+  width: 15px;
+  height: 25px;
+  border-radius: 5px;
+  background: #969696;
+  cursor: pointer;
+}
+
 .keyboard {
   margin: 30px auto 20px;
   width: 75%;
@@ -181,6 +259,7 @@ canvas {
 }
 
 .white-key {
+  color: black;
   background-color: rgb(236, 253, 255);
   box-shadow: inset 0 0 5px 1px rgb(88, 88, 88);
   z-index: 1;
@@ -191,7 +270,7 @@ canvas {
   color: white;
   background-color: rgb(15, 15, 15);
   box-shadow: inset 0 0 5px 1px rgb(0, 0, 0);
-  width: 55px;
+  width: 50px;
   z-index: 2;
 }
 
@@ -227,33 +306,6 @@ canvas {
   cursor: pointer;
   background-color: rgb(44, 44, 44);
   box-shadow: inset 0 0 5px 1px rgb(0, 0, 0);
-}
-
-.input[type="range"] {
-  -webkit-appearance: none;
-  height: 12%;
-  margin-top: 60px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  background-color: #696969;
-  opacity: 0.7;
-  /* width: 135px; */
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-  transform: rotate(270deg);
-  bottom: 15px;
-  box-shadow: inset 0 0 3px 1px rgba(212, 212, 212, 0.634);
-}
-
-.input::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 15px;
-  height: 25px;
-  border-radius: 5px;
-  background-color: rgb(220, 242, 251);
-  box-shadow: inset 0 0 3px 1px rgb(235, 235, 235);
-  cursor: pointer;
 }
 
 .showBtnContainer {
