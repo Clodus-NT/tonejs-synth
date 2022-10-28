@@ -1,4 +1,4 @@
-// Maybe a buit long winded, but easiest way I could think of to populate note values into an array of arrays
+// Maybe a bit long winded, but easiest way I could think of to populate note values into an array of arrays
 // Tone will later convert these into frequency values when fed to triggerAttack() in keydown event handling
 let C0_Oct = ['C0', 'C#0', 'D0', 'D#0', 'E0', 'F0', 'F#0', 'G0', 'G#0', 'A0', 'A#0', 'B0', 'C1', 'C#1', 'D1', 'D#1', 'E1', 'F1']; 
 let C1_Oct = ['C1', 'C#1', 'D1', 'D#1', 'E1', 'F1', 'F#1', 'G1', 'G#1', 'A1', 'A#1', 'B1', 'C2', 'C#2', 'D2', 'D#2', 'E2', 'F2']; 
@@ -63,6 +63,7 @@ document.addEventListener('keydown', (e) => {
   // Change Note Range
   document.addEventListener('keydown', (e) => {
     if (e.repeat) return;
+
     if (globalKeyDown === 'z') {
       C3ref--; // Dec default index for note range
       globalRngRef = C3ref;
@@ -70,6 +71,9 @@ document.addEventListener('keydown', (e) => {
       C3ref++; // Inc default index for note range
       globalRngRef = C3ref;
     }
+    
+    if (C3ref < 0) {C3ref = 0;}
+    if (C3ref > 7) {C3ref = 7;}
   })
 
 for (let j = 0; j < noteValArr[C3ref].length; j++) {
@@ -78,70 +82,7 @@ for (let j = 0; j < noteValArr[C3ref].length; j++) {
   noteRangeDisplay.classList.add('currentNoteRange')
   noteRangeDisplay.innerText = noteValArr[C3ref][j].slice(0, -1);
   noteRangeContainer.append(noteRangeDisplay);
-
-  // switch (C3ref) {
-  //   case 0:
-  //     noteRangeDisplay.innerText = noteValArr[0][j];
-  //     console.log(C3ref)
-  //     break;
-  //   case 1:
-  //     noteRangeDisplay.innerText = noteValArr[1][j];
-  //     console.log(C3ref)
-  //     break;
-  //   case 2:
-  //     noteRangeDisplay.innerText = noteValArr[2][j];
-  //     console.log(C3ref)
-  //     break;
-  //   case 4:
-  //     noteRangeDisplay.innerText = noteValArr[4][j];
-  //     console.log(C3ref)
-  //     break;
-  //   case 5:
-  //     noteRangeDisplay.innerText = noteValArr[5][j];
-  //     console.log(C3ref)
-  //     break;
-  //   case 6:
-  //     noteRangeDisplay.innerText = noteValArr[6][j];
-  //     console.log(C3ref)
-  //     break;
-  //   case 7:
-  //     noteRangeDisplay.innerText = noteValArr[7][j];
-  //     console.log(C3ref)
-  //     break;
-  //   default:
-  //     noteRangeDisplay.innerText = noteValArr[3][j];
-  //     console.log(C3ref)
-  // }
 }
-
-// if (C3ref > 3 || C3ref < 3) {
-//   noteRangeDisplay = document.querySelectorAll('');
-//   switch (C3ref) {
-//     case 0:
-//       noteRangeDisplay.innerText = noteValArr[0][j];
-//       break;
-//     case 1:
-//       noteRangeDisplay.innerText = noteValArr[1][j];
-//       break;
-//     case 2:
-//       noteRangeDisplay.innerText = noteValArr[2][j];
-//       break;
-//     case 4:
-//       noteRangeDisplay.innerText = noteValArr[4][j];
-//       break;
-//     case 5:
-//       noteRangeDisplay.innerText = noteValArr[5][j];
-//       break;
-//     case 6:
-//       noteRangeDisplay.innerText = noteValArr[6][j];
-//       break;
-//     case 7:
-//       noteRangeDisplay.innerText = noteValArr[7][j];
-//       break;
-//     default:
-//       noteRangeDisplay.innerText = noteValArr[3][j];
-//   }
-// }
 
 // *******************************************************
   // Generate Keys & Handle the mouse hover styling
