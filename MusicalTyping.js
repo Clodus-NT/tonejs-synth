@@ -30,11 +30,11 @@ let individualKey; // Used to add/remove classes in keyup/keydown
 // Musical Typing event handling
   // KeyDown (triggerAttack())
 document.addEventListener('keydown', (e) => {
-  if (e.repeat) return; // Without this, the note would infinitely trigger an attack until released
   globalKeyDown = e.key // Store the most current key that was pressed
+  if (e.repeat) return; // Without this, the note would infinitely trigger an attack until released
 
   for (let i = 0; i < keyboardOptions.length; i++) {
-    if (globalKeyDown === keyboardOptions[i]) {
+    if (e.key === keyboardOptions[i]) {
       noteIndex = noteValArr[C3ref][i]; // C3ref serves as entry index into noteValArr
       synthMain.triggerAttack(noteIndex); // Trigger note at given index
     }
@@ -44,7 +44,7 @@ document.addEventListener('keydown', (e) => {
   // KeyUp (triggerRelease())
 document.addEventListener('keyup', (e) => {
   for (let i = 0; i < keyboardOptions.length; i++) {
-    if (globalKeyDown === keyboardOptions[i]) { // Check to see if the most recent keydown = keyup
+    if (globalKeyDown === e.key) { // Check to see if the most recent keydown = keyup
       synthMain.triggerRelease();
     }
   }
