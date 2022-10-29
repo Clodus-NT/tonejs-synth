@@ -17,7 +17,7 @@ body {
 
 .synthesizer {
   padding: 5px;
-  margin: 15px;
+  margin: 10px;
   background-color: rgb(15, 15, 15);
   border: solid #393939;
   border-radius: 15px;
@@ -338,7 +338,7 @@ canvas {
 
 .showInstructBtn {
   outline: none;
-  padding: 10px;
+  padding: 5.5px;
   border: 2px solid rgb(66, 66, 66);
   border-radius: 10px;
   box-shadow: 0 0 5px 2px rgb(88, 88, 88);
