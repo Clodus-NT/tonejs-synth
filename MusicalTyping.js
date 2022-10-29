@@ -47,8 +47,6 @@ document.addEventListener('keyup', (e) => {
     if (globalKeyDown === keyboardOptions[i]) { // Check to see if the most recent keydown = keyup
       synthMain.triggerRelease();
     }
-    // individualKey.classList.remove('black-key_held');
-    // individualKey.classList.remove('white-key_held');
   }
 });
 
@@ -121,6 +119,44 @@ document.addEventListener('keyup', (e) => {
     }
   }
 })
+
+// *******************************************************
+  // Mouse Event Handling (for playing notes)
+// let isMouseDown = false;
+document.addEventListener('mousedown', (e) => {
+  if (e.repeat) return; // Without this, the note would infinitely trigger an attack until released
+  for (let i = 0; i < keyboardOptions.length; i++) {
+    individualKey = document.getElementById(`key${i}`);
+    if (e.target === individualKey) {
+      // isMouseDown = true;
+      noteIndex = noteValArr[C3ref][i]; // C3ref serves as entry index into noteValArr
+      synthMain.triggerAttack(noteIndex); // Trigger note at given index
+    }
+  }
+});
+
+  // Mouse Event Handling (for playing notes)
+// document.addEventListener('mouseover', (e) => {
+//   for (let i = 0; i < keyboardOptions.length; i++) {
+//     individualKey = document.getElementById(`key${i}`);
+//     if (e.target === individualKey && isMouseDown === true) {
+//       noteIndex = noteValArr[C3ref][i]; // C3ref serves as entry index into noteValArr
+//       synthMain.triggerAttack(noteIndex); // Trigger note at given index
+//     }
+//   }
+// });
+
+  // Mouse Event Handling (for playing notes)
+document.addEventListener('mouseup', (e) => {
+  if (e.repeat) return; // Without this, the note would infinitely trigger an attack until released
+  for (let i = 0; i < keyboardOptions.length; i++) {
+    individualKey = document.getElementById(`key${i}`);
+    if (e.target === individualKey) {
+      // mousedown = false;
+      synthMain.triggerRelease();
+    }
+  }
+});
 
 // *******************************************************
   // Generate Keys & Handle the mouse hover styling
