@@ -370,34 +370,26 @@ canvas {
   box-shadow: inset 0 0 5px 1px rgba(212, 212, 212, 0.634);
 }
 
-.keyOptions {
+.adsrUL {
+  font-weight: 900;
+  font-size: 18px;
+}
+.keyOptions,
+.rangeLI,
+.wavUL,
+.adsrType,
+a {
   color: #48b9d8;
   font-weight: 900;
-}
-
-.rangeLI {
-  color: #48b9d8;
-  font-weight: 900;
-}
-
-.wavUL {
-  color: #48b9d8;
-  font-weight: 900;  
-}
-
-.adsrType {
-  color: #48b9d8;
-  font-weight: 900;
-}
-
-.envArticle {
-  /* color: rgb(255, 255, 255); */
-  color: #48b9d8;
-  font-weight: 900;
+  font-size: 18px;
 }
 
 h1,
 h2,
 h3 {
   color: #48b9d8;
+}
+
+p {
+  font-size: 20px;
 }
