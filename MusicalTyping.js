@@ -121,38 +121,45 @@ document.addEventListener('keyup', (e) => {
 })
 
 // *******************************************************
-  // Mouse Event Handling (for playing notes)
-// let isMouseDown = false;
+  // Mousedown Handling (for playing notes)
+let isMouseDown = false;
 document.addEventListener('mousedown', (e) => {
   if (e.repeat) return; // Without this, the note would infinitely trigger an attack until released
   for (let i = 0; i < keyboardOptions.length; i++) {
     individualKey = document.getElementById(`key${i}`);
     if (e.target === individualKey) {
-      // isMouseDown = true;
+      isMouseDown = true;
       noteIndex = noteValArr[C3ref][i]; // C3ref serves as entry index into noteValArr
       synthMain.triggerAttack(noteIndex); // Trigger note at given index
     }
   }
 });
 
-  // Mouse Event Handling (for playing notes)
-// document.addEventListener('mouseover', (e) => {
-//   for (let i = 0; i < keyboardOptions.length; i++) {
-//     individualKey = document.getElementById(`key${i}`);
-//     if (e.target === individualKey && isMouseDown === true) {
-//       noteIndex = noteValArr[C3ref][i]; // C3ref serves as entry index into noteValArr
-//       synthMain.triggerAttack(noteIndex); // Trigger note at given index
-//     }
-//   }
-// });
+  // Mouseover Handling (for playing notes)
+document.addEventListener('mouseover', (e) => {
+  for (let i = 0; i < keyboardOptions.length; i++) {
+    individualKey = document.getElementById(`key${i}`);
+    if (e.target === individualKey && isMouseDown === true) {
+      noteIndex = noteValArr[C3ref][i]; // C3ref serves as entry index into noteValArr
+      synthMain.triggerAttack(noteIndex); // Trigger note at given index
+    }
+  }
+});
 
-  // Mouse Event Handling (for playing notes)
+  // Mouseout Handling (prevents notes from playing indefinitely when mouseover outside of keyboard)
+document.getElementById('_keyboardUL').addEventListener('mouseleave', () => {
+  console.log('boo')
+  isMouseDown = false;
+  synthMain.triggerRelease();
+})
+
+  // Mouseup Handling (for stopping notes)
 document.addEventListener('mouseup', (e) => {
   if (e.repeat) return; // Without this, the note would infinitely trigger an attack until released
   for (let i = 0; i < keyboardOptions.length; i++) {
     individualKey = document.getElementById(`key${i}`);
     if (e.target === individualKey) {
-      // mousedown = false;
+      isMouseDown = false;
       synthMain.triggerRelease();
     }
   }
