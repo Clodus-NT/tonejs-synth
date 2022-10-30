@@ -71,6 +71,25 @@ document.addEventListener('keydown', (e) => {
 })
 
 // *******************************************************
+  // Handle Note Range Buttons
+  const lowerNoteRange = () => {
+    C3ref--
+    if (C3ref < 0) {C3ref = 0;};
+    for (let k = 0; k < currentNoteRange.length; k++) {
+      individualNote = document.getElementById(`note${k}`);
+      individualNote.innerText = noteValArr[C3ref][k];
+    }
+  }
+  const raiseNoteRange = () => {
+    C3ref++
+    if (C3ref > 7) {C3ref = 7;};
+    for (let k = 0; k < currentNoteRange.length; k++) {
+      individualNote = document.getElementById(`note${k}`);
+      individualNote.innerText = noteValArr[C3ref][k];
+    }
+  }
+
+// *******************************************************
   // Render Notes to Keyboard
 let noteRangeDisplay;
 let currentNoteRange = noteValArr[C3ref];
@@ -85,7 +104,10 @@ for (let j = 0; j < noteValArr[C3ref].length; j++) {
 
 // *******************************************************
   // Handle keydown styling
-document.addEventListener('keydown', () => {
+
+const zBtn = document.getElementById('_zBtn');
+const xBtn = document.getElementById('_xBtn');
+document.addEventListener('keydown', (e) => {
   for (let l = 0; l < keyboardOptions.length; l++) {
     individualKey = document.getElementById(`key${l}`);
     if (globalKeyDown === keyboardOptions[l]) {
@@ -107,6 +129,9 @@ document.addEventListener('keydown', () => {
       individualKey.classList.remove('white-key_held');
     }
   }
+
+  if (e.key === 'z') {zBtn.classList.add('noteRangeBtn_active')};
+  if (e.key === 'x') {xBtn.classList.add('noteRangeBtn_active')};
 })
 
   // Handle Keyup Styling Reset
@@ -118,6 +143,9 @@ document.addEventListener('keyup', (e) => {
       individualKey.classList.remove('white-key_held');
     }
   }
+  
+  if (e.key === 'z') {zBtn.classList.remove('noteRangeBtn_active')};
+  if (e.key === 'x') {xBtn.classList.remove('noteRangeBtn_active')};
 })
 
 // *******************************************************
