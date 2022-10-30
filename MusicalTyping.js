@@ -44,9 +44,7 @@ document.addEventListener('keydown', (e) => {
   // KeyUp (triggerRelease())
 document.addEventListener('keyup', (e) => {
   for (let i = 0; i < keyboardOptions.length; i++) {
-    if (globalKeyDown === e.key) { // Check to see if the most recent keydown = keyup
-      synthMain.triggerRelease();
-    }
+    if (globalKeyDown === e.key) {synthMain.triggerRelease()} // Check to see if the most recent keydown = keyup
   }
 });
 
@@ -55,11 +53,8 @@ document.addEventListener('keyup', (e) => {
 let individualNote;
 document.addEventListener('keydown', (e) => {
   if (e.repeat) return; // Prevents note ranges from cycling rapidly on keydown
-  if (e.key === 'z') {
-    C3ref--; // Dec default index for note range
-  } else if (e.key === 'x') {
-    C3ref++; // Inc default index for note range
-  }
+  if (e.key === 'z') {C3ref--} // Dec default index for note range
+  if (e.key === 'x') {C3ref++;} // Inc default index for note range
   // Prevents user from going outside available note ranges
   if (C3ref < 0) {C3ref = 0;};
   if (C3ref > 7) {C3ref = 7;};

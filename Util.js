@@ -11,9 +11,7 @@ function audioCtxReady() {
 // *******************************************************
   // Volume Control
 const volSlider = document.getElementById('_volCtrl');
-const volVal = volSlider.addEventListener('change', function(e) {
-  Tone.Master.volume.value = e.currentTarget.value
-});
+const volVal = volSlider.addEventListener('change', function(e) {Tone.Master.volume.value = e.currentTarget.value});
 
 // *******************************************************
 function initAudio() {
@@ -32,24 +30,16 @@ function initAudio() {
   // Envelope Controls
     // Attack
   const attSlider = document.getElementById('_attSlider');
-  attSlider.addEventListener('change', function(e) {
-    synthMain.envelope.attack = e.currentTarget.value;
-  });
+  attSlider.addEventListener('change', function(e) {synthMain.envelope.attack = e.currentTarget.value});
     // Decay
   const decSlider = document.getElementById('_decSlider');
-  decSlider.addEventListener('change', function(e) {
-    synthMain.envelope.decay = e.currentTarget.value;
-  });
+  decSlider.addEventListener('change', function(e) {synthMain.envelope.decay = e.currentTarget.value});
     // Sustain
   const susSlider = document.getElementById('_susSlider');
-  susSlider.addEventListener('change', function(e) {
-    synthMain.envelope.sustain = e.currentTarget.value;
-  });
+  susSlider.addEventListener('change', function(e) {synthMain.envelope.sustain = e.currentTarget.value});
     // Release
   const relSlider = document.getElementById('_relSlider');
-  relSlider.addEventListener('change', function(e) {
-    synthMain.envelope.release = e.currentTarget.value;
-  });
+  relSlider.addEventListener('change', function(e) {synthMain.envelope.release = e.currentTarget.value});
 
 // *******************************************************
   // Volume Control

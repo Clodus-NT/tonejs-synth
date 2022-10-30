@@ -2,7 +2,6 @@ let ready = false;
 let oscMain, synthMain, mstrVolume, ampEnv, waveform, masterVolume, buffer, canvas;
 // *******************************************************
 function setup() {
-  // canvas = createCanvas(800, 315);
   canvas = createCanvas(windowWidth/2, windowHeight/3);
   canvas.parent('_canvas')
 }
@@ -10,9 +9,7 @@ function setup() {
 function draw() {
   background(25);
   audioCtxReady();
-  if (ready) {
-    drawWave(); // Waveform Visualizer
-  }
+  if (ready) {drawWave()}; // Waveform Visualizer
 }
 // *******************************************************
 function mousePressed() {
@@ -22,6 +19,4 @@ function mousePressed() {
   }
 }
 // *******************************************************
-function windowResized() {
-  resizeCanvas(windowWidth/2, windowHeight/3);
-}
+function windowResized() {resizeCanvas(windowWidth/2, windowHeight/3)};
