@@ -138,13 +138,19 @@ function drawWave() {
 // Show/Hide Instructions
 const instructions = document.getElementById('_instructions');
 const expandInstructBtn = document.getElementById('_showInstructBtn');
+let instructionsShown = true;
 
 const showInstructions = () => {
   instructions.style.display='block';
+  instructionsShown = true;
   expandInstructBtn.style.display='none';
 }
 
 const hideInstructions = () => {
   instructions.style.display='none';
+  instructionsShown = false;
   expandInstructBtn.style.display='flex';
 }
+
+if (instructionsShown) {expandInstructBtn.style.display='none'};
+if (!instructionsShown) {expandInstructBtn.style.display='flex'};

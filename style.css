@@ -378,6 +378,7 @@ canvas {
 .showBtnContainer {
   display: flex;
   justify-content: center;
+  margin-bottom: 15px;
 }
 
 .showInstructBtn {
@@ -403,7 +404,7 @@ canvas {
 }
 
 .instructions {
-  display: none;
+  display: block;
   margin: 35px 75px 35px 75px;
   padding: 40px;
   font-family: sans-serif;
