@@ -4,7 +4,7 @@
 Co-Synth is a monophonic synthesizer built with Tone.js and p5.js.
 
 ## Goal
-My goal with this project was to challenge myself by working with unfamiliar JavaScript libraries and to hone my vanilla JavaScript skills. I also wanted to build something that could be enjoyed by anyone who comes across it. Clo-Synth is designed to be approachable for those who are unfamiliar with musical synthesizers while still appealing to synth fans as a fun, interactive project.
+My goal with this project was to challenge myself by working with unfamiliar JavaScript libraries and to hone my vanilla JavaScript skills. I also wanted to build something that could be enjoyed by anyone who comes across it. Clo-Synth is designed to be approachable for those who are unfamiliar with musical synthesizers while still appealing to synth fans as a fun, interactive project. Not to mention, I love synthesizers, so I built one :)
 
 ## Features:
 - 4 different waveforms:
@@ -55,3 +55,17 @@ If you are unfamiliar with how an ADSR (attack, decay, sustain, release) envelop
 - Decay: the higher the slider, the longer the decay time before resting at the level of sustain
 - Sustain: the higher the slider, the higher the level of sustain
 - Release: the higher the slider, the longer the release time
+
+## Wrapping Up
+
+### Why Build a Synthesizer?
+Not only did I want to challenge myself, I just straight up love synths!
+
+### Do You Plan to Add More Features?
+Yes! Well... in another version. I would love to add an effects rack, a filter, modulation sources and a choice between several of Tone's synthesizer offerings. However, I believe that Clo-Synth should remain simple for a wide appeal. In the future, I plan to build a second version that will appeal more to synth enthusiasts.
+
+### Challenges
+Building Clo-Synth was by far the most difficult project I have worked on. When I started this project, I had very little experience with p5.js and I had never even heard of Tone.js. I actually began by using the p5.js sound add-on, however, I soon found Tone.js. I decided to switch to Tone as I found that the library had more robust features. This meant rewriting a decent amount of the code, but with more power at my finger tips, came a more complicated design process. Simple things like triggering a note and triggering the release of that note was quite a challenge to work out. Tone's documentation is thorough, but somewhat confusing for a newcomer. Motivated by my love for synths (and having a fun project for my portfolio), I pressed on until I succeeded.
+
+## Summary
+Building Clo-Synth is hands down the most fun I've ever had with a project. It was just as challenging as it was rewarding and I'm looking forward to diving further into the ocean of Tone.js. I hope that Clo-Synth will inspire fellow developers to give Tone a try and provide a fun experience for users. Follow me on github to keep an eye out for my next Tone project.
