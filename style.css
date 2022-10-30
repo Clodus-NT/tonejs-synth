@@ -163,16 +163,27 @@ canvas {
   margin-bottom: 55px;
 }
 
-/* @-moz-document url-prefix() {
+@-moz-document url-prefix() {
   .envCtrl {
-    width: 55%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    width: 75%;
+    display: flex;
     justify-content: center;
     align-content: center;
   }
 
-  .attContainer {
+  /* .envSliders {
+    display: flex;
+    flex-direction: column;
+  } */
+
+  /* #_attSlider,
+  #_decSlider,
+  #_susSlider,
+  #_relSlider {
+    margin-bottom: 55px;
+  } */
+
+  /* .attContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -198,8 +209,8 @@ canvas {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-} */
+  } */
+}
 
 .input[type="range"] {
   -webkit-appearance: none;
