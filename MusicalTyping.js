@@ -148,7 +148,6 @@ document.addEventListener('mouseover', (e) => {
 
   // Mouseout Handling (prevents notes from playing indefinitely when mouseover outside of keyboard)
 document.getElementById('_keyboardUL').addEventListener('mouseleave', () => {
-  console.log('boo')
   isMouseDown = false;
   synthMain.triggerRelease();
 })

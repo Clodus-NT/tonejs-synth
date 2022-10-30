@@ -5,8 +5,6 @@ function setup() {
   // canvas = createCanvas(800, 315);
   canvas = createCanvas(windowWidth/2, windowHeight/3);
   canvas.parent('_canvas')
-  frameRate(30);
-  // createKeys();
 }
 // *******************************************************
 function draw() {

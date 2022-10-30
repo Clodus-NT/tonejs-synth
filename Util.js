@@ -122,7 +122,7 @@ function drawWave() {
     }
   }
   let end = buffer.length/2 + start; 
-  
+
   beginShape();
   for (let i=start; i < end; i++) {      
     let x = map(i, start, end, 0, width);
