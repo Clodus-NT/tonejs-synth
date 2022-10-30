@@ -105,17 +105,17 @@ canvas {
 }
 
 .modulation {
+  margin: auto;
   display: flex;
   justify-content: center;
+  width: 50%;
 }
 
 .envCtrl {
-  /* margin: auto; */
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   justify-content: center;
   align-content: center;
-  width: 50%;
+  width: 100%;
   padding: 15px 5px 15px 5px;
   color: rgb(220, 242, 251);
   font-weight: bolder;
@@ -124,35 +124,43 @@ canvas {
   box-shadow: 0 0 5px 1px rgba(212, 212, 212, 0.634);
 }
 
+.envSliders {
+  justify-content: center;
+}
+
 .attContainer {
   display: grid;
   grid-column: 1 / span 1;
   text-align: center;
-}
+  width: 25%;
+} 
 
 .decContainer {
   display: grid;
   grid-column: 2 / span 1;
   text-align: center;
+  width: 25%;
 }
 
 .susContainer {
   display: grid;
   grid-column: 3 / span 1;
   text-align: center;
+  width: 25%;
 }
 
 .relContainer {
   display: grid;
   grid-column: 4 / span 1;
   text-align: center;
+  width: 25%;
 }
 
 #_attSlider,
 #_decSlider,
 #_susSlider,
 #_relSlider {
-  margin: 55px;
+  margin-bottom: 55px;
 }
 
 /* @-moz-document url-prefix() {
@@ -325,11 +333,6 @@ canvas {
   background-color: rgb(44, 44, 44);
   box-shadow: inset 0 0 5px 1px rgb(0, 0, 0);
 }
-
-/* .currentNoteRange {
-  display: flex;
-  flex-direction: row;
-} */
 
 .showBtnContainer {
   display: flex;
