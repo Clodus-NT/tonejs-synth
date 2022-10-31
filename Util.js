@@ -103,12 +103,12 @@ function drawWave() {
   
   let buffer = waveform.getValue(0);
   let start = 0; 
-  for (let i=1; i < buffer.length; i++) {
-    if (buffer[i-1] < 0 && buffer[i] >= 0) {
-      start = i;
-      break; // interrupts the for loop 
-    }
-  }
+  // for (let i=1; i < buffer.length; i++) {
+  //   if (buffer[i-1] < 0 && buffer[i] >= 0) {
+  //     start = i;
+  //     break; // interrupts the for loop 
+  //   }
+  // }
   let end = buffer.length/2 + start; 
 
   beginShape();
