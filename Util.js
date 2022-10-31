@@ -44,23 +44,21 @@ function initAudio() {
 // *******************************************************
   // Volume Control
   const volSlider = document.getElementById('_volCtrl');
-  volSlider.addEventListener('change', function(e) {
-    Tone.Master.volume.value = e.currentTarget.value
-  });
+  volSlider.addEventListener('change', function(e) {Tone.Master.volume.value = e.currentTarget.value});
 
   waveform = new Tone.Waveform();
   Tone.Master.connect(waveform);
 }
 
 // *******************************************************
-// Select the waveform handling
+  // Select the waveform handling
 const selectSine = () => synthMain.oscillator.type = 'sine';
 const selectTri = () => synthMain.oscillator.type = 'triangle';
 const selectSaw = () => synthMain.oscillator.type = 'sawtooth';
 const selectSquare = () => synthMain.oscillator.type = 'square';
 
 // *******************************************************
-// Draw Waveform to Canvas & Button Styling
+  // Draw Waveform to Canvas & Button Styling
 function drawWave() {
   let sineWavBtn = document.getElementById('_sineBtn');
   let triWavBtn = document.getElementById('_triBtn');
@@ -125,7 +123,7 @@ function drawWave() {
 }
 
 // *******************************************************
-// Show/Hide Instructions
+  // Show/Hide Instructions
 const instructions = document.getElementById('_instructions');
 const expandInstructBtn = document.getElementById('_showInstructBtn');
 let instructionsShown = true;
