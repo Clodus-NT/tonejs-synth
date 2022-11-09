@@ -29,6 +29,7 @@ There are 8 selectable note ranges:
 - C0-F1
 - C1-F2
 - C2-F3
+- C3-F4
 - C4-F4
 - C5-F6
 - C6-F7
